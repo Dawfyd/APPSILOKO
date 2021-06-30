@@ -1,0 +1,45 @@
+.page-login-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../../../assets/background/nasa-login.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.page-login-logo {
+    position: absolute;
+    top: 6vh;
+    left: 4.7vw;
+    width: 14.5vw;
+}
+.page-login-container-div {
+    position: absolute;
+    width: 89vw;
+    height: 55vh;
+    background-color: white;
+    left: 5.5vw;
+    top: 22.5vh;
+    border-radius: 60px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.page-login-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 10vh;
+    padding-top: 3vh;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 50px;
+
+}
+.page-login-app {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 40vh;
+}
