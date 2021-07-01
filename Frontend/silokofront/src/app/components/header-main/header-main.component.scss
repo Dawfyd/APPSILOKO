@@ -1,0 +1,87 @@
+.header-main-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 7vh;
+    border-bottom: 1px solid #dfdfdf;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.header-main-logo {
+    display: flex;
+    height: 7vh;
+    width: 40%;
+
+}
+.header-main-menu{
+    width: 50%;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+
+}
+.header-button-exit {
+    width: 10%;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-logo-img {
+    width: 10vw;
+    padding-left: 5vw;
+}
+.header-button-credit {
+    height: 5vh;
+    width:17vw;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4vw;
+    line-height: 20px;
+    color: #18191F;
+    background-color: white;
+    border: 0;
+}
+.header-button-quota {
+    height: 5vh;
+    width: 15vw;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4vw;
+    line-height: 20px;
+    color: #18191F;
+    background-color: white;
+    border: 0;
+}
+.header-button-clients {
+    height: 5vh;
+    width: 9vw;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4vw;
+    line-height: 20px;
+    color: #18191F;
+    background-color: white;
+    border: 0;
+}
+.header-button-records{
+    height: 5vh;
+    width: 9vw;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4vw;
+    line-height: 20px;
+    color: #18191F;
+    background-color: white;
+    border: 0;
+}
+.header-button-exit-img {
+    width: 2.1vmax;
+    display: flex;
+}

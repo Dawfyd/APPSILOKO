@@ -1,0 +1,18 @@
+<div class="form-template-container">
+    <span class="form-template-title">{{titleForm}}</span>
+    <form class="form-template-form">
+        <mat-form-field class="form-template-form-field" appearance="outline">
+            <input class="form-template-input" matInput placeholder="{{firstPlaceholder}}" [formControl]="firstInput" required>
+            <mat-error *ngIf="firstInput.invalid">{{getErrorMessageFirstInput()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-template-form-field" appearance="outline" *ngIf="showSecondPlaceholder">
+            <input class="form-template-input" matInput placeholder="{{secondPlaceholder}}" [formControl]="secondInput" required
+                [type]="hide ? 'password' : 'text'">
+            <mat-error *ngIf="secondInput.invalid">{{getErrorMessageSecondInput()}}</mat-error>
+        </mat-form-field>
+        <div class="form-template-container-button">
+            <button class="form-template-button">{{buttonForm}}</button>
+        </div>
+
+    </form>
+</div>

@@ -5,7 +5,9 @@
             SILOKO CREDIT
         </div>
         <div class="page-login-app">
-            <app-login></app-login>
+            <form-template [showSecondPlaceholder]="showPassword" [titleForm]="loginTitle" [firstPlaceholder]="user" [secondPlaceholder]="password"
+                [buttonForm]="button">
+            </form-template>
         </div>
 
     </div>

@@ -1,0 +1,66 @@
+.card-client-container {
+    width: 40.3vw;
+    border: 1px solid #dfdfdf;
+    border-radius: 1.2vw;
+    display: flex;
+}
+.card-client-label-container {
+    width: 18vw;
+    border-right: 1px solid #dfdfdf;
+    padding-left: 1.15vw;
+    padding-right: 1vw;
+}
+.card-client-text-container {
+    width: 18vw;
+    padding-left: 1.15vw;
+    padding-right: 1vw;
+}
+.card-client-label-title {
+    height: 5.5vh;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4vw;
+    line-height: 1.5vw;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.87);
+}
+.card-client-label-text {
+    height: 4.25vh;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25vw;
+    line-height: 1.35vw;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.87);
+}
+.card-client-label-description {
+    height: 4.9vh;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.11vw;
+    line-height: 1.2vw;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    color:  rgba(0, 0, 0, 0.87);
+
+}
+.card-client-text-description {
+    height: 4.9vh;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 0.97vw;
+    line-height: 1.1vw;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.87);
+}

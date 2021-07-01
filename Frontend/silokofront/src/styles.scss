@@ -5,15 +5,24 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 //$rojooscuro:#9E2A2B;
+//$gris:#C4C4C4;
+//$grisclaro:#dfdfdf;
+//$verde:#008000;
 @font-face {
     font-family: "Poppins";
     font-weight: 100;
     src: local("Poppins"),
       url(./assets/fonts/Poppins/Poppins-Regular.ttf) format("truetype");
   }
-  @font-face {
+ @font-face {
     font-family: "Poppins";
     font-weight: 500;
     src: local("Poppins"),
       url(./assets/fonts/Poppins/Poppins-Medium.ttf) format("truetype");
-  }
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 700;
+  src: local("Poppins"),
+    url(./assets/fonts/Poppins/Poppins-SemiBold.ttf) format("truetype");
+}

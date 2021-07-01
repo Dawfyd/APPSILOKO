@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
+  loginTitle: string = "Inicia sesión";
+  user: string = "Usuario";
+  password: string = "Contraseña";
+  button: string = "Entrar";
+  showPassword: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {

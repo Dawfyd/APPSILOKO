@@ -1,0 +1,35 @@
+.credit-header-container {
+    position: absolute;
+    width: 100vw;
+    height: 7vh;
+    display: block;
+}
+.credit-body-container {
+    position: absolute;
+    top: 7vh;
+    height: 93vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+.credit-request-form {
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.credit-body-divider {
+    position:absolute;
+    left: 50vw;
+    width: 1px;
+    border-left: 1px solid #dfdfdf;
+    height: 64%;
+}
+.credit-request-card {
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

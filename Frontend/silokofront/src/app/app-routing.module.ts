@@ -5,6 +5,7 @@ import { CreditRequestComponent } from './pages/credit-request/credit-request.co
 import { QuotaManagementComponent } from './pages/quota-management/quota-management.component';
 import { ClientsComponent } from './pages/clients/clients.component';
 import { RecordsComponent } from './pages/records/records.component';
+import { CreditManagementComponent } from './pages/credit-management/credit-management.component';
 
 const routes: Routes = [
   { path: '', component:  LoginPageComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'cupo', component:  QuotaManagementComponent },
   { path: 'clientes', component:  ClientsComponent },
   { path: 'registros', component:  RecordsComponent },
+  { path: 'creditos-cajero', component:  CreditManagementComponent },
 
 ];
 

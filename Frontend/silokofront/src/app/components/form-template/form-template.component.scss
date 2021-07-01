@@ -1,4 +1,4 @@
-.login-container{
+.form-template-container{
   width: 23.6vw;
   height: auto;
   display: flex;
@@ -6,21 +6,22 @@
   justify-content: center;
 
 }
-.login-title{
+.form-template-title{
   text-align: center;
   width: 100%;
-  height: 6vh;
-  font-family: Roboto!important;
-  font-weight: normal!important;
+  height: 8vh;
+  font-family: Poppins!important;
+  font-weight: 500!important;
   font-size: 1.6vw!important;
+  line-height: 1.7vw;
 }
-.login-form {
+.form-template-form {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.login-form-field {
+.form-template-form-field {
   width: 100%;
   padding: 0px 8px 0px 8px;
   height: 9vh;
@@ -35,7 +36,7 @@
   margin: 0!important;
   padding: 0!important;
 }
-.login-input {
+.form-template-input {
   padding-bottom: 1vh!important;
   height:6vh;
   width: 19vw!important;
@@ -50,18 +51,17 @@
   color: #9E2A2B!important;
   font-size: 0.9vw!important;
 }
-.ng-tns-c64-0, .ng-tns-c64-1{
-
- color: rgb(0, 0, 0);
+[class*='ng-tns-c64'] {
+ color: rgba(0, 0, 0, 0.6)
 }
-.login-container-button{
+.form-template-container-button{
 
   height: 8vh;
   display: flex;
   align-items:flex-end;
   text-align: center;
 }
-.login-button{
+.form-template-button{
   width: 22.5vw;
   height: 6.2vh;
   background-color: black;

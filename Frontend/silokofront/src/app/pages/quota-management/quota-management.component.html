@@ -1,1 +1,30 @@
-<p>quota-management works!</p>
+<header class="quota-header-container">
+    <app-header-main></app-header-main>
+</header>
+
+<body class="quota-body-container">
+    <div class="quota-request-form">
+        <div class="quota-form-container">
+            <form-template [showSecondPlaceholder]="showPassword" [titleForm]="loginTitle" [firstPlaceholder]="user"
+                [secondPlaceholder]="password" [buttonForm]="button">
+            </form-template>
+        </div>
+        <div class="quota-card-container">
+            <app-card-client></app-card-client>
+        </div>
+
+    </div>
+    <div class="quota-body-divider"></div>
+
+    <div class="quota-request-card">
+        <div class="quota-simple-card">
+            <app-card-client></app-card-client>
+        </div>
+        <div class="quota-button-container">
+            <button class="quota-form-button">Modificar</button>
+        </div>
+
+    </div>
+
+
+</body>
