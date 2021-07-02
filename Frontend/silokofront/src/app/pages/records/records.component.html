@@ -1,2 +1,43 @@
-<app-header-main></app-header-main>
+<header class="records-header-container">
+    <app-header-main></app-header-main>
+</header>
 
+<body class="records-body-container">
+    <div class="records-request-form">
+        <div class="records-form-container">
+            <form-template
+                [showSecondPlaceholder]="showPassword"
+                [titleForm]="formTitle"
+                [firstPlaceholder]="documentLabel"
+                [secondPlaceholder]="password"
+                [buttonForm]="button">
+            </form-template>
+        </div>
+        <div class="records-card-simple">
+            <app-card-simple
+                [titleCard]="titleClient"
+                [firstLabel]="namesClient"
+                [secondLabel]="surnamesClient"
+                [thirdLabel]="documentClient"
+                [firstInput]="namesClientInput"
+                [secondInput]="surnamesClientInput"
+                [thirdInput]="documentClientInput">
+            </app-card-simple>
+        </div>
+    </div>
+    <div class="records-body-divider"></div>
+    <div class="records-request-card">
+        <div class="records-card-container">
+            <app-card-credit></app-card-credit>
+        </div>
+        <div class="records-card-container">
+            <app-card-credit></app-card-credit>
+        </div>
+        <div class="records-card-container">
+            <app-card-credit></app-card-credit>
+        </div>
+        <div class="records-card-container">
+            <app-card-credit></app-card-credit>
+        </div>
+    </div>
+</body>

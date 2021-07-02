@@ -1,2 +1,38 @@
-<app-header-main></app-header-main>
+<header class="management-header-container">
+    <app-header-main [showMenu]="showMenuHeader"></app-header-main>
+</header>
 
+<body class="management-body-container">
+    <div class="management-request-form">
+        <form-template [titleForm]="loginTitle" [firstPlaceholder]="user" [secondPlaceholder]="password"
+            [buttonForm]="button">
+        </form-template>
+    </div>
+    <div class="management-body-divider"></div>
+
+    <div class="management-request-card">
+        <div class="management-card-client ">
+            <app-card-simple
+                [titleCard]="titleClient"
+                [firstLabel]="namesClient"
+                [secondLabel]="surnamesClient"
+                [thirdLabel]="documentClient"
+                [firstInput]="namesClientInput"
+                [secondInput]="surnamesClientInput"
+                [thirdInput]="documentClientInput">
+            </app-card-simple>
+        </div>
+        <div class="management-card-container">
+            <app-card-credit></app-card-credit>
+        </div>
+        <div class="management-select-container">
+            <app-select-dues></app-select-dues>
+        </div>
+        <div class="management-button-container">
+            <button class="management-form-button">Realizar Compra</button>
+        </div>
+
+
+    </div>
+
+</body>

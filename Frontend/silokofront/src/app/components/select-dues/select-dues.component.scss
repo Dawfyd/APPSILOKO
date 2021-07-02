@@ -1,0 +1,39 @@
+.select-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 8.3vh;
+  width: 40vw;
+  border: 1px solid #dfdfdf;
+  border-radius: 1.2vw;
+}
+.select-radio-label {
+  height: 3.3vh;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.25vw;
+  line-height: 3.3vh;
+  width: 100%;
+  text-align: center;
+  color: #000000;
+
+}
+.select-radio-container {
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 90%;
+  height: 5vh;
+  display: flex;
+  justify-content:space-between;
+
+}
+.select-radio-button {
+  margin: 0 0.5vw;
+  align-self: center;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.25vw;
+  color: rgba(0, 0, 0, 0.80)
+}

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Component, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-header-main',
@@ -7,5 +7,5 @@ import { Router, RouterModule } from '@angular/router';
   styleUrls: ['./header-main.component.scss']
 })
 export class HeaderMainComponent {
-
+  @Input() showMenu: boolean = true;
 }

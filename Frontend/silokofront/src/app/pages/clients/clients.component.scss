@@ -1,0 +1,62 @@
+.client-header-container {
+    position: absolute;
+    width: 100vw;
+    height: 7vh;
+    display: block;
+}
+.client-body-container {
+    position: absolute;
+    top: 7.1vh;
+    height: 77.9vh;
+    width: 100vw;
+    overflow: auto;
+
+}
+.client-title-table {
+    position: absolute;
+    width: 40vw;
+    left: 30vw;
+    top: 2.5vh;
+    display: flex;
+    justify-content: center;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.5vw;
+    line-height: 54px;
+    color: rgba(0, 0, 0, 0.8)
+}
+.client-table-container {
+    width: 77vw;
+    position: absolute;
+    left: 11.5vw;
+    top: 10vh;
+}
+.client-button-container {
+    position: fixed;
+    bottom: 0vh;
+    left: 0vw;
+    width: 88.5vw;
+    padding-right: 11.5vw;
+    height: 13vh;
+    display: flex;
+    align-items:flex-start;
+    justify-content: flex-end;
+    padding-top: 2vh;
+    border-top: 1px solid #c4c4c4;
+
+  }
+
+  .client-table-button {
+    width: 22.5vw;
+    height: 6.2vh;
+    background-color: black;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4vh;
+    line-height: 2.5vmax;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 0;
+  }

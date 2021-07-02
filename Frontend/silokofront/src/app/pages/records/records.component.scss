@@ -1,0 +1,59 @@
+.records-header-container {
+    position: absolute;
+    width: 100vw;
+    height: 7vh;
+    display: block;
+}
+.records-body-container {
+    position: absolute;
+    top: 7vh;
+    height: 93vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+.records-request-form {
+    width: 50vw;
+    height: 93vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.records-body-divider {
+    position:absolute;
+    left: 50vw;
+    width: 1px;
+    border-left: 1px solid #dfdfdf;
+    height: 64%;
+}
+
+.records-form-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 33%;
+    width: 50vw;
+    height: 30%;
+}
+.records-card-simple {
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+    width: 50vw;
+    height: 37%;
+}
+.records-request-card {
+    overflow: auto;
+    padding-top: 2vh;
+    width: 50vw;
+    height: 91vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+.records-card-container {
+    padding: 0vh 0px 2vh 0px;
+    height: auto;
+    align-self: center;
+}

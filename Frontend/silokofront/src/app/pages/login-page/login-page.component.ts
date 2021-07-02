@@ -11,7 +11,6 @@ export class LoginPageComponent implements OnInit {
   user: string = "Usuario";
   password: string = "Contraseña";
   button: string = "Entrar";
-  showPassword: boolean = true;
 
   constructor() { }
 

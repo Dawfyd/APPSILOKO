@@ -12,7 +12,7 @@ export class CreditRequestComponent implements OnInit {
   user: string = "Cedula de Ciudadanía";
   password: string = "Código de Artículo ";
   button: string = "Solicitar";
-  showPassword: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {

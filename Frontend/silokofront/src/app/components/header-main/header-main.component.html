@@ -2,13 +2,13 @@
     <div class="header-main-logo">
         <img class="header-logo-img" src="assets/logo/logo-black.svg">
     </div>
-    <div class="header-main-menu">
+    <div class="header-main-menu" *ngIf="showMenu">
         <a routerLink="/creditos"><button class="header-button-credit">Solicitud de Crédito</button></a>
         <a routerLink="/cupo"><button class="header-button-quota">Gestión de Cupo</button></a>
         <a routerLink="/clientes"><button class="header-button-clients">Clientes</button></a>
         <a routerLink="/registros"><button class="header-button-records">Registros</button></a>
     </div>
-    <div class="header-button-exit">
+    <div class="header-button-exit" *ngIf="showMenu">
         <a routerLink=""><img class="header-button-exit-img" src="assets/icons/exit-button.svg"></a>
     </div>
 </div>

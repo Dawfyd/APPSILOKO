@@ -1,21 +1,21 @@
-.card-client-container {
+.card-simple-container {
     width: 40.3vw;
     border: 1px solid #dfdfdf;
     border-radius: 1.2vw;
     display: flex;
 }
-.card-client-label-container {
+.card-simple-label-container {
     width: 18vw;
     border-right: 1px solid #dfdfdf;
     padding-left: 1.15vw;
     padding-right: 1vw;
 }
-.card-client-text-container {
+.card-simple-text-container {
     width: 18vw;
     padding-left: 1.15vw;
     padding-right: 1vw;
 }
-.card-client-label-title {
+.card-simple-label-title {
     height: 5.5vh;
     font-family: Poppins;
     font-style: normal;
@@ -27,7 +27,7 @@
     letter-spacing: 0.5px;
     color: rgba(0, 0, 0, 0.87);
 }
-.card-client-label-text {
+.card-simple-label-text {
     height: 4.25vh;
     font-family: Poppins;
     font-style: normal;
@@ -39,7 +39,7 @@
     letter-spacing: 0.5px;
     color: rgba(0, 0, 0, 0.87);
 }
-.card-client-label-description {
+.card-simple-label-description {
     height: 4.9vh;
     font-family: Poppins;
     font-style: normal;
@@ -52,7 +52,7 @@
     color:  rgba(0, 0, 0, 0.87);
 
 }
-.card-client-text-description {
+.card-simple-text-description {
     height: 4.9vh;
     font-family: Poppins;
     font-style: normal;

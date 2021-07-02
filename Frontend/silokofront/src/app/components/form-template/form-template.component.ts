@@ -9,7 +9,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class FormTemplateComponent {
 
-  @Input() showSecondPlaceholder: boolean = false;
+  @Input() showSecondPlaceholder: boolean = true;
   @Input() titleForm: string = "";
   @Input() firstPlaceholder: string = "";
   @Input() secondPlaceholder: string = "";

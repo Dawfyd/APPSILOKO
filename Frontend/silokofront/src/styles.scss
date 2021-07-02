@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -25,4 +26,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-weight: 700;
   src: local("Poppins"),
     url(./assets/fonts/Poppins/Poppins-SemiBold.ttf) format("truetype");
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+  border-color:#008000;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle{
+  color:#008000;
+  background-color:#008000;
+}
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color:#008000;
 }
