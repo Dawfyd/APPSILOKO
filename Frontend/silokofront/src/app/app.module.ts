@@ -23,8 +23,11 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatNativeDateModule } from '@angular/material/core';
 import { TableClientsComponent } from './components/table-clients/table-clients.component';
 import { SelectDuesComponent } from './components/select-dues/select-dues.component';
-import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
-
+import { MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
+import { CardQuotaComponent } from './components/card-quota/card-quota.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ClientService } from './services/client.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,7 @@ import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio
     CardSimpleComponent,
     TableClientsComponent,
     SelectDuesComponent,
+    CardQuotaComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,14 +59,17 @@ import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio
     MatSortModule,
     MatNativeDateModule,
     MatRadioModule,
-
+    MatSlideToggleModule,
+    HttpClientModule,
 
   ],
   entryComponents: [],
-  providers: [{
-    provide: MAT_RADIO_DEFAULT_OPTIONS,
-    useValue: { color: 'accent' },
-}],
+  providers: [
+    ClientService,
+    {
+      provide: MAT_RADIO_DEFAULT_OPTIONS,
+      useValue: { color: 'accent' },
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

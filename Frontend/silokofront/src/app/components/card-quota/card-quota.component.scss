@@ -1,0 +1,130 @@
+.card-quota-container-button {
+    z-index: 2;
+    width: 40.3vw;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card-quota-container {
+    width: 40.3vw;
+    border: 1px solid #dfdfdf;
+    border-radius: 1.2vw;
+    display: flex;
+}
+.card-quota-label-container {
+    width: 18vw;
+    border-right: 1px solid #dfdfdf;
+    padding-left: 1.15vw;
+    padding-right: 1vw;
+}
+.card-quota-text-container {
+    width: 18vw;
+    padding-left: 1.15vw;
+    padding-right: 1vw;
+
+}
+.card-quota-label-title {
+    height: 5.5vh;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4vw;
+    line-height: 1.5vw;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.87);
+}
+.card-quota-label-text {
+    height: 4.25vh;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25vw;
+    line-height: 1.35vw;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.87);
+}
+.card-quota-label-description {
+    height: 4.9vh;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.11vw;
+    line-height: 1.2vw;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    color:  rgba(0, 0, 0, 0.87);
+
+}
+.card-quota-text-description {
+    height: 4.9vh;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 0.97vw;
+    line-height: 1.1vw;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.87);
+}
+.card-quota-slide-container {
+    height: 4.25vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+
+}
+
+.card-quota-label-state-text {
+    width: 80%;
+    height: 4.25vh;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25vw;
+    line-height: 1.35vw;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.87);
+}
+.card-quota-slide,  .mat-slide-toggle-bar{
+    width: 20%;
+    height: 4.25vh!important;
+
+}
+.card-quota-input-text {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin: 0.38vh 0 0.38vh 0!important;
+    height: 3.24vh!important;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25vw;
+    line-height: 1.35vw;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.87);
+}
+.card-quota-form-button {
+    margin-top: 5vh;
+    width: 22.5vw;
+    height: 6.2vh;
+    background-color: black;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4vh;
+    line-height: 2.5vmax;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 0;
+}

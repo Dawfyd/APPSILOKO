@@ -29,12 +29,12 @@
 }
 .quota-request-card {
     width: 50vw;
-    height: 100%;
+    height: auto;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .quota-form-container {
     display: flex;
@@ -51,6 +51,7 @@
     height: 37%;
 }
 .quota-form-button {
+    margin-top: 5vh;
     width: 22.5vw;
     height: 6.2vh;
     background-color: black;
@@ -66,14 +67,5 @@
   .quota-simple-card{
     display: flex;
     justify-content: center;
-    padding-top: 40%;
     width: 50vw;
-    height: 22%;
-  }
-  .quota-button-container {
-    display: flex;
-    justify-content: center;
-    align-self: flex-start;
-    width: 50vw;
-    height: 33%;
   }

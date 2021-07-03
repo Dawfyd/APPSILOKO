@@ -2,7 +2,7 @@
     <span class="form-template-title">{{titleForm}}</span>
     <form class="form-template-form">
         <mat-form-field class="form-template-form-field" appearance="outline">
-            <input class="form-template-input" matInput placeholder="{{firstPlaceholder}}" [formControl]="firstInput" required>
+            <input type="text" #newItem class="form-template-input" matInput placeholder="{{firstPlaceholder}}" [formControl]="firstInput" required>
             <mat-error *ngIf="firstInput.invalid">{{getErrorMessageFirstInput()}}</mat-error>
         </mat-form-field>
         <mat-form-field class="form-template-form-field" appearance="outline" *ngIf="showSecondPlaceholder">
@@ -11,7 +11,7 @@
             <mat-error *ngIf="secondInput.invalid">{{getErrorMessageSecondInput()}}</mat-error>
         </mat-form-field>
         <div class="form-template-container-button">
-            <button class="form-template-button">{{buttonForm}}</button>
+            <button (click)="addNewItem(newItem.value)" class="form-template-button">{{buttonForm}}</button>
         </div>
 
     </form>

@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderMainComponent {
   @Input() showMenu: boolean = true;
+
 }

@@ -6,10 +6,10 @@
     <div class="quota-request-form">
         <div class="quota-form-container">
             <form-template
+                (newItemEvent)="getClient($event)"
                 [showSecondPlaceholder]="showPassword"
                 [titleForm]="formTitle"
                 [firstPlaceholder]="documentLabel"
-                [secondPlaceholder]="password"
                 [buttonForm]="button">
             </form-template>
         </div>
@@ -30,7 +30,19 @@
 
     <div class="quota-request-card">
         <div class="quota-simple-card">
-            <app-card-simple
+        <app-card-quota *ngIf="!conditionCard"
+        (updateCard)="cardChange($event)"
+        (updateState)="stateChange($event)"
+            (saveQuota)="updateSave($event)"
+            [titleCard]="titleQuota"
+            [firstLabel]="stateQuota"
+            [secondLabel]="totalQuota"
+            [thirdLabel]="freeQuota"
+            [firstInput]="stateQuotaInput"
+            [secondInput]="totalQuotaInputFormat"
+            [thirdInput]="freeQuotaInput">
+        </app-card-quota>
+         <app-card-simple *ngIf="conditionCard"
                 [titleCard]="titleQuota"
                 [firstLabel]="stateQuota"
                 [secondLabel]="totalQuota"
@@ -40,10 +52,8 @@
                 [thirdInput]="freeQuotaInput">
             </app-card-simple>
         </div>
-        <div class="quota-button-container">
-            <button class="quota-form-button">Modificar</button>
-        </div>
-
+            <button  *ngIf="conditionCard" (click)="updateOn()"
+            class="quota-form-button">Modificar</button>
     </div>
 
 

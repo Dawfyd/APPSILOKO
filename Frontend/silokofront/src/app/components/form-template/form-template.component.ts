@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input,ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class FormTemplateComponent {
 
+  @Output() newItemEvent = new EventEmitter<string>();
   @Input() showSecondPlaceholder: boolean = true;
   @Input() titleForm: string = "";
   @Input() firstPlaceholder: string = "";
@@ -34,5 +35,9 @@ export class FormTemplateComponent {
     }
 
     return this.secondInput.hasError( this.secondPlaceholder) ? 'Not a valid'+this.secondPlaceholder : '';
+  }
+  addNewItem(value: string) {
+    this.newItemEvent.emit(value);
+    
   }
 }

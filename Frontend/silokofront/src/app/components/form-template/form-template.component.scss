@@ -46,6 +46,7 @@
   padding-left: 10px!important;
   padding: 3.5px 10px 0vmax 10px!important;
 
+
 }
 .mat-error {
   color: #9E2A2B!important;
@@ -73,4 +74,14 @@
   color: #FFFFFF;
   border-radius: 5px;
   border: 0;
+}
+
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
 }

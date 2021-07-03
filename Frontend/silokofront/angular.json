@@ -23,6 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "proxyConfig": "src/proxy.conf.json",
             "outputPath": "dist/silokofront",
             "index": "src/index.html",
             "main": "src/main.ts",

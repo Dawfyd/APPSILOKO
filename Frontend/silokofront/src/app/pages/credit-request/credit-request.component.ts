@@ -1,4 +1,5 @@
 import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
+import { ClientService, Client } from 'src/app/services/client.service';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -13,9 +14,18 @@ export class CreditRequestComponent implements OnInit {
   password: string = "Código de Artículo ";
   button: string = "Solicitar";
 
-  constructor() { }
+  client: Client;
 
-  ngOnInit(): void {
+  constructor(private clientService: ClientService) { }
+
+  ngOnInit() {
+    this.getClient();
   }
 
+  getClient() {
+    this.clientService.getClient().subscribe((data: Client) => {
+      console.log('subscribe client', data);
+      this.client = data;
+    });
+  }
 }

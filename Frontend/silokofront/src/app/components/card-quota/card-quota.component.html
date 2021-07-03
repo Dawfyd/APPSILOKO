@@ -1,0 +1,26 @@
+<div class="card-quota-container-button">
+    <div class="card-quota-container">
+        <div class="card-quota-label-container">
+            <span class="card-quota-label-title">{{titleCard}}</span>
+            <span class="card-quota-label-text">{{firstLabel}}</span>
+            <span class="card-quota-label-text">{{secondLabel}}</span>
+            <span class="card-quota-label-text">{{thirdLabel}}</span>
+        </div>
+        <div class="card-quota-text-container">
+            <span class="card-quota-label-title"></span>
+            <div class="card-quota-slide-container">
+                <span class="card-quota-label-state-text">{{firstInput}}</span>
+                <mat-slide-toggle ngModel
+                class="card-quota-slide"
+                [(ngModel)]="checked"
+                [disabled]="disabled">
+            </mat-slide-toggle>
+            </div>
+            <input #newQuota class="card-quota-input-text" matInput placeholder="{{secondInputFormat}}" value="{{secondInput}}">
+            <span class="card-quota-label-text">{{thirdInput}}</span>
+        </div>
+
+    </div>
+    <button (click)="updateSave(newQuota.value)"
+    class="card-quota-form-button">Guardar</button>
+</div>
