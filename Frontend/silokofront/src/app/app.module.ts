@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormTemplateComponent } from './components/form-template/form-template.component';
@@ -28,6 +29,9 @@ import { CardQuotaComponent } from './components/card-quota/card-quota.component
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ClientService } from './services/client.service';
 import { HttpClientModule } from '@angular/common/http';
+import { QuotaService } from './services/quota.service';
+import { ProductService } from './services/product.service';
+import { CreditService } from './services/credit.service';
 
 @NgModule({
   declarations: [
@@ -66,6 +70,9 @@ import { HttpClientModule } from '@angular/common/http';
   entryComponents: [],
   providers: [
     ClientService,
+    QuotaService,
+    ProductService,
+    CreditService,
     {
       provide: MAT_RADIO_DEFAULT_OPTIONS,
       useValue: { color: 'accent' },

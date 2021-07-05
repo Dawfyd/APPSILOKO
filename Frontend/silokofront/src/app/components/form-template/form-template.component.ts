@@ -1,5 +1,7 @@
-import { Component, Input,ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { Component, Input,ViewEncapsulation, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { FormInputsDto } from 'src/app/services/dto/form-inputs.dto';
+
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -7,9 +9,9 @@ import { FormControl, Validators } from '@angular/forms';
   templateUrl: './form-template.component.html',
   styleUrls: ['./form-template.component.scss']
 })
-export class FormTemplateComponent {
+export class FormTemplateComponent implements OnInit {
 
-  @Output() newItemEvent = new EventEmitter<string>();
+  @Output() newFormValue = new EventEmitter<FormInputsDto>();
   @Input() showSecondPlaceholder: boolean = true;
   @Input() titleForm: string = "";
   @Input() firstPlaceholder: string = "";
@@ -17,11 +19,15 @@ export class FormTemplateComponent {
   @Input() buttonForm: string = "";
 
 
-
-  hide = true;
+  hide = false;
   firstInput = new FormControl('', [Validators.required]);
   secondInput = new FormControl('', [Validators.required]);
 
+  ngOnInit() {
+    if(this.buttonForm == "Entrar"){
+      this.hide = true;
+    }
+  }
   getErrorMessageFirstInput() {
     if (this.firstInput.hasError('required')) {
       return 'Ingresa el campo '+ this.firstPlaceholder;
@@ -36,8 +42,12 @@ export class FormTemplateComponent {
 
     return this.secondInput.hasError( this.secondPlaceholder) ? 'Not a valid'+this.secondPlaceholder : '';
   }
-  addNewItem(value: string) {
-    this.newItemEvent.emit(value);
-    
+  sendForm(firstValueForm: string, secondValueForm: string) {
+    let formInputs : FormInputsDto;
+    formInputs = {
+      firstValue: firstValueForm,
+      secondValue: secondValueForm,
+    }
+    this.newFormValue.emit(formInputs);
   }
 }

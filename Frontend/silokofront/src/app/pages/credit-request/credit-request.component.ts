@@ -1,13 +1,20 @@
 import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
-import { ClientService, Client } from 'src/app/services/client.service';
+import { Client } from 'src/app/services/models/client.interface';
+import { ClientService } from 'src/app/services/client.service';
+import { FormInputsDto } from 'src/app/services/dto/form-inputs.dto';
+import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'src/app/services/models/product.interface';
+import { Credit } from 'src/app/services/models/credit.interface';
+import { CreditService } from 'src/app/services/credit.service';
+import { CreditPostDto } from 'src/app/services/dto/credit-post.dto';
+
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
   selector: 'app-credit-request',
   templateUrl: './credit-request.component.html',
   styleUrls: ['./credit-request.component.scss']
 })
-export class CreditRequestComponent implements OnInit {
+export class CreditRequestComponent {
 
   loginTitle: string = "Solicitar Financiación de Electrodoméstico";
   user: string = "Cedula de Ciudadanía";
@@ -15,17 +22,29 @@ export class CreditRequestComponent implements OnInit {
   button: string = "Solicitar";
 
   client: Client;
+  product: Product;
+  credit: Credit;
 
-  constructor(private clientService: ClientService) { }
+  conditionCredit: boolean = false;
+  constructor(
+    private clientService: ClientService,private productService: ProductService,private creditService: CreditService) { }
 
-  ngOnInit() {
-    this.getClient();
-  }
+  createCredit(newData: FormInputsDto) {
+    this.conditionCredit = false;
+    this.clientService.getClient(newData.firstValue).subscribe((dataClient: Client) => {
+      this.client = dataClient[0];
+      this.productService.getProduct(newData.secondValue).subscribe((dataProduct: Product) => {
+        this.product = dataProduct;
+        let newCreditPostDto : CreditPostDto;
+        newCreditPostDto = {
+          cupoId: this.client.cupo.id,
+          electrodomesticoId: dataProduct.id}
 
-  getClient() {
-    this.clientService.getClient().subscribe((data: Client) => {
-      console.log('subscribe client', data);
-      this.client = data;
+        this.creditService.createCredit(newCreditPostDto).subscribe((dataCredit: Credit) => {
+          this.credit = dataCredit;
+          this.conditionCredit = true;
+            });
+        });
     });
   }
 }

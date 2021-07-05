@@ -5,12 +5,18 @@
 <body class="credit-body-container">
 
     <div class="credit-request-form">
-        <form-template [titleForm]="loginTitle" [firstPlaceholder]="user" [secondPlaceholder]="password"
-            [buttonForm]="button">
+        <form-template
+        (newFormValue)="createCredit($event)"
+        [titleForm]="loginTitle"
+        [firstPlaceholder]="user"
+        [secondPlaceholder]="password"
+        [buttonForm]="button">
         </form-template>
     </div>
     <div class="credit-body-divider"></div>
-    <div class="credit-request-card">
-        <app-card-credit></app-card-credit>
+    <div class="credit-request-card" >
+        <app-card-credit *ngIf="conditionCredit"
+        [creditInput]="credit">
+    </app-card-credit>
     </div>
 </body>

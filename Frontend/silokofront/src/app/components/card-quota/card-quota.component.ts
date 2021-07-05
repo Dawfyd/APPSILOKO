@@ -1,41 +1,54 @@
-import { Component, Input, OnInit, Output, EventEmitter  } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import { QuotaUpdateDto } from 'src/app/services/dto/quota-put.dto';
+import { Quota } from 'src/app/services/models/quota.interface';
 
 
 @Component({
   selector: 'app-card-quota',
   templateUrl: './card-quota.component.html',
-  styleUrls: ['./card-quota.component.scss']
+  styleUrls: ['./card-quota.component.scss'],
 })
 export class CardQuotaComponent implements OnInit {
-
-  @Output() saveQuota = new EventEmitter<string>();
-  @Output() updateCard = new EventEmitter<boolean>();
-  @Output() updateState = new EventEmitter<boolean>();
-  @Input() titleCard: string = "";
-  @Input() firstLabel: string = "";
-  @Input() secondLabel: string = "";
-  @Input() thirdLabel: string = "";
-  @Input() firstInput: string = "";
-  @Input() secondInput: number = 0;
-  @Input() thirdInput: string = "";
-
-  secondInputFormat: string = "";
+  titleCard: string = "Cupo";
+  firstLabel: string = "Estado de cupo";
+  secondLabel: string = "Cupo total";
+  thirdLabel: string = "Cupo disponible";
   checked: boolean;
   disabled = false;
+  secondInputFormat: string = "";
+  conditionCard: boolean = true;
+
+  @Output() saveQuota = new EventEmitter<QuotaUpdateDto>();
+  @Input()  quotaInput: Quota;
+  firstInput: string = "";
+  secondInput: number = 0;
+  thirdInput: string = "";
+
   constructor() { }
 
-  ngOnInit(): void {
-    this.secondInputFormat = "$"+(this.secondInput).toLocaleString('de-DE');
-    if (this.firstInput === "Activo") {
-      this.checked = true;
+  ngOnInit() {
+    this.secondInput = this.quotaInput.cupoMaximo;
+    this.secondInputFormat = "$"+(this.quotaInput.cupoMaximo).toLocaleString('de-DE');
+    this.thirdInput = "$"+(this.quotaInput.cupoDisponible).toLocaleString('de-DE');
+    this.checked = this.quotaInput.estadoCupo;
+    if (this.quotaInput.estadoCupo === true) {
+      this.firstInput = "Activo";
     } else {
-      this.checked = false;
+      this.firstInput = "Bloqueado";
     }
   }
-  updateSave(value: string) {
-    this.saveQuota.emit(value);
-    this.updateCard.emit(true);
-    this.updateState.emit(this.checked);
-    this.secondInputFormat = "$"+(this.secondInput).toLocaleString('de-DE');
+  updateCard() {
+    let quotaUpdateDto : QuotaUpdateDto;
+    quotaUpdateDto = {
+      id: this.quotaInput.id,
+      cupoMaximo: this.secondInput,
+      estadoCupo: this.checked,
+    }
+    this.saveQuota.emit(quotaUpdateDto);
+    this.conditionCard = true;
+
+  }
+  updateOn(){
+    this.conditionCard = false;
   }
 }

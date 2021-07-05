@@ -2,25 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Observable } from 'rxjs';
-
-
-export interface Quota {
-  id: number;
-  cupoMaximo: number;
-  cupoDisponible: number;
-  estadoCupo: boolean;
-}
-
-export interface Client {
-  id: number;
-  cedulaCiudadania: string;
-  nombre: string;
-  apellido: string;
-  pais: string;
-  ciudad: string;
-  estrato: number;
-  cupo: Quota;
-}
+import { Client } from './models/client.interface';
 
 @Injectable({
   providedIn: 'root'

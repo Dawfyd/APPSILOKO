@@ -10,17 +10,21 @@
             <span class="card-quota-label-title"></span>
             <div class="card-quota-slide-container">
                 <span class="card-quota-label-state-text">{{firstInput}}</span>
-                <mat-slide-toggle ngModel
+                <mat-slide-toggle *ngIf="!conditionCard"
                 class="card-quota-slide"
                 [(ngModel)]="checked"
                 [disabled]="disabled">
             </mat-slide-toggle>
+
             </div>
-            <input #newQuota class="card-quota-input-text" matInput placeholder="{{secondInputFormat}}" value="{{secondInput}}">
+            <span *ngIf="conditionCard" class="card-quota-label-text">{{secondInputFormat}}</span>
+            <input  [(ngModel)]="secondInput" type="number" *ngIf="!conditionCard" class="card-quota-input-text" matInput placeholder="{{secondInputFormat}}" value="{{secondInput}}">
             <span class="card-quota-label-text">{{thirdInput}}</span>
         </div>
 
     </div>
-    <button (click)="updateSave(newQuota.value)"
+    <button *ngIf="!conditionCard" (click)="updateCard()"
     class="card-quota-form-button">Guardar</button>
+    <button *ngIf="conditionCard" (click)="updateOn()"
+    class="card-quota-form-button">Modificar</button>
 </div>
