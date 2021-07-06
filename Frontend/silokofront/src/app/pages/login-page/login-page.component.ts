@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { FormInputsDto } from 'src/app/services/dto/form-inputs.dto';
+import { UserLoginDto } from 'src/app/services/dto/user-login.dto';
 
 @Component({
   selector: 'app-login-page',
@@ -11,10 +15,31 @@ export class LoginPageComponent implements OnInit {
   user: string = "Usuario";
   password: string = "Contraseña";
   button: string = "Entrar";
+  userLoginDto: UserLoginDto;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private authService: AuthService,  ) {}
 
   ngOnInit(): void {
   }
-
+  onLoginSuccess(userData) {
+    this.router.navigateByUrl('/creditos');
+    this.authService.setToken(userData.token);
+  }
+  onLoginError(err) {
+    alert(err.statusText);
+  }
+  loginAdmin(dataUser: FormInputsDto) {
+    this.userLoginDto = {
+      user: dataUser.firstValue,
+      password: dataUser.secondValue,
+    }
+      this.authService
+        .authenticate(this.userLoginDto)
+        .subscribe(
+          this.onLoginSuccess.bind(this),
+          this.onLoginError
+        );
+  }
 }

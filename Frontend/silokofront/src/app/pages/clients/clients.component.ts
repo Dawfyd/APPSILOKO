@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MassiveProcessDto } from 'src/app/services/dto/massive-process.dto';
+import { QuotaService } from 'src/app/services/quota.service';
 
 @Component({
   selector: 'app-clients',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clients.component.scss']
 })
 export class ClientsComponent implements OnInit {
-  showMenuHeader: boolean = true;
-  constructor() { }
 
-  ngOnInit(): void {
+  conditionCard: boolean = false;
+  massiveProcessDto: MassiveProcessDto;
+  constructor(private quotaService: QuotaService) { }
+
+  ngOnInit() {
   }
-
+  runProcess() {
+    this.conditionCard = false;
+    this.quotaService.runMassiveProcess().subscribe((data: MassiveProcessDto) => {
+      this.massiveProcessDto = data;
+      console.log(data);
+      this.conditionCard = true;
+    });
+  }
 }

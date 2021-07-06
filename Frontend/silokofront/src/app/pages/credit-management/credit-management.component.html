@@ -4,7 +4,11 @@
 
 <body class="management-body-container">
     <div class="management-request-form">
-        <form-template [titleForm]="loginTitle" [firstPlaceholder]="user" [secondPlaceholder]="password"
+        <form-template
+            (newFormValue)="getClient($event)"
+            [titleForm]="loginTitle"
+            [firstPlaceholder]="documentLabel"
+            [secondPlaceholder]="codeLabel"
             [buttonForm]="button">
         </form-template>
     </div>
@@ -23,15 +27,16 @@
             </app-card-simple>
         </div>
         <div class="management-card-container">
-            <app-card-credit></app-card-credit>
+            <app-card-credit *ngIf="conditionCard" [creditInput]="credit">
+            </app-card-credit>
+            <app-credit-template *ngIf="!conditionCard">
+            </app-credit-template>
         </div>
-        <div class="management-select-container">
-            <app-select-dues></app-select-dues>
+        <div class="management-select-container" *ngIf="conditionSelect">
+            <app-select-dues
+            (newUpdateDues)="updateDues($event)"
+            ></app-select-dues>
         </div>
-        <div class="management-button-container">
-            <button class="management-form-button">Realizar Compra</button>
-        </div>
-
 
     </div>
 

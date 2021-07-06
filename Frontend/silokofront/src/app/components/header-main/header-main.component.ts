@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -9,4 +10,9 @@ import { Component, Input } from '@angular/core';
 export class HeaderMainComponent {
   @Input() showMenu: boolean = true;
 
+  constructor(private authService: AuthService) {}
+
+  deleteToken(){
+    this.authService.deleteToken();
+  }
 }

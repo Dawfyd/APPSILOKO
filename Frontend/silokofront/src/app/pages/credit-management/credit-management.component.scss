@@ -51,27 +51,8 @@
 }
 .management-select-container {
     display: flex;
-    justify-content: center;
+    justify-items: center;
     width: 50vw;
     height: 8.3vh;
     padding-bottom: 6vh;
-}
-.management-button-container {
-    display: flex;
-    justify-content: center;
-    width: 50vw;
-    height: 6.2vh;
-}
-.management-form-button {
-    width: 22.5vw;
-    height: 6.2vh;
-    background-color: black;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 2.4vh;
-    line-height: 2.5vmax;
-    color: #FFFFFF;
-    border-radius: 5px;
-    border: 0;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Client } from 'src/app/services/models/client.interface';
 import { ClientService } from 'src/app/services/client.service';
 import { FormInputsDto } from 'src/app/services/dto/form-inputs.dto';
@@ -15,19 +15,17 @@ import { CreditPostDto } from 'src/app/services/dto/credit-post.dto';
   styleUrls: ['./credit-request.component.scss']
 })
 export class CreditRequestComponent {
-
   loginTitle: string = "Solicitar Financiación de Electrodoméstico";
   user: string = "Cedula de Ciudadanía";
   password: string = "Código de Artículo ";
   button: string = "Solicitar";
-
   client: Client;
   product: Product;
   credit: Credit;
-
   conditionCredit: boolean = false;
+
   constructor(
-    private clientService: ClientService,private productService: ProductService,private creditService: CreditService) { }
+    private clientService: ClientService, private productService: ProductService, private creditService: CreditService) { }
 
   createCredit(newData: FormInputsDto) {
     this.conditionCredit = false;
@@ -35,16 +33,16 @@ export class CreditRequestComponent {
       this.client = dataClient[0];
       this.productService.getProduct(newData.secondValue).subscribe((dataProduct: Product) => {
         this.product = dataProduct;
-        let newCreditPostDto : CreditPostDto;
+        let newCreditPostDto: CreditPostDto;
         newCreditPostDto = {
           cupoId: this.client.cupo.id,
-          electrodomesticoId: dataProduct.id}
-
+          electrodomesticoId: dataProduct.id
+        }
         this.creditService.createCredit(newCreditPostDto).subscribe((dataCredit: Credit) => {
           this.credit = dataCredit;
           this.conditionCredit = true;
-            });
         });
+      });
     });
   }
 }

@@ -1,45 +1,45 @@
 <mat-form-field appearance="fill">
     <mat-label >Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
   </mat-form-field>
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
 
       <!-- ID Column -->
-      <ng-container matColumnDef="Cedula de Ciudadania">
+      <ng-container matColumnDef="cedulaCiudadania">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Cedula de Ciudadanía</th>
-        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+        <td mat-cell *matCellDef="let row">{{row.cedulaCiudadania}} </td>
       </ng-container>
 
       <!-- Progress Column -->
-      <ng-container matColumnDef="progress">
+      <ng-container matColumnDef="nombre">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</th>
-        <td mat-cell *matCellDef="let row"> {{row.progress}}% </td>
+        <td mat-cell *matCellDef="let row">{{row.nombre}}</td>
       </ng-container>
 
       <!-- Name Column -->
-      <ng-container matColumnDef="name">
+      <ng-container matColumnDef="apellido">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellidos</th>
-        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        <td mat-cell *matCellDef="let row">{{row.apellido}} </td>
       </ng-container>
 
       <!-- Fruit Column -->
-      <ng-container matColumnDef="fruit">
+      <ng-container matColumnDef="cupoMaximo">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Cupo Total</th>
-        <td mat-cell *matCellDef="let row"> {{row.fruit}} </td>
+        <td mat-cell *matCellDef="let row">${{row.cupoMaximo}} </td>
       </ng-container>
 
       <!-- Fruit Column -->
-      <ng-container matColumnDef="5">
+      <ng-container matColumnDef="cupoDisponible">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Cupo Disponible</th>
-        <td mat-cell *matCellDef="let row"> $2.000.000 </td>
+        <td mat-cell *matCellDef="let row">${{row.cupoDisponible}}</td>
       </ng-container>
 
       <!-- Fruit Column -->
-      <ng-container matColumnDef="6">
+      <ng-container matColumnDef="estadoCupo">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado de Cupo</th>
-        <td mat-cell *matCellDef="let row"> $3.000.000 </td>
+        <td mat-cell *matCellDef="let row">{{row.estadoCupo}} </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

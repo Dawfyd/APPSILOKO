@@ -1,0 +1,22 @@
+[
+  {
+    "request": {
+      "url": "^/auth-service/v1/auth$",
+      "method": "POST",
+      "post": "{\"user\":\"admin\",\"password\":\"admin\"}"
+    },
+    "response": {
+      "status": 200,
+      "file": "./user.json"
+     }
+  },
+  {
+    "request": {
+     "url": "^/auth-service/v1/auth$",
+     "method": "POST"
+     },
+    "response": {
+       "status": 401
+    }
+   }
+ ]

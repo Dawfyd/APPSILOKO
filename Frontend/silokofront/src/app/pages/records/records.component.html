@@ -5,39 +5,28 @@
 <body class="records-body-container">
     <div class="records-request-form">
         <div class="records-form-container">
-            <form-template
-                [showSecondPlaceholder]="showPassword"
-                [titleForm]="formTitle"
-                [firstPlaceholder]="documentLabel"
-                [secondPlaceholder]="password"
-                [buttonForm]="button">
+            <form-template (newFormValue)="getClient($event)" [showSecondPlaceholder]="showPassword"
+                [titleForm]="formTitle" [firstPlaceholder]="documentLabel" [buttonForm]="button">
             </form-template>
         </div>
         <div class="records-card-simple">
-            <app-card-simple
-                [titleCard]="titleClient"
-                [firstLabel]="namesClient"
-                [secondLabel]="surnamesClient"
-                [thirdLabel]="documentClient"
-                [firstInput]="namesClientInput"
-                [secondInput]="surnamesClientInput"
+            <app-card-simple [titleCard]="titleClient" [firstLabel]="namesClient" [secondLabel]="surnamesClient"
+                [thirdLabel]="documentClient" [firstInput]="namesClientInput" [secondInput]="surnamesClientInput"
                 [thirdInput]="documentClientInput">
             </app-card-simple>
         </div>
     </div>
     <div class="records-body-divider"></div>
-    <div class="records-request-card">
-        <div class="records-card-container">
-            <app-card-credit></app-card-credit>
+    <div *ngIf="conditionCard" class="records-request-card">
+        <div class="records-card-container" *ngFor="let credit of credits">
+            <app-card-credit *ngIf="conditionCard" [creditInput]="credit">
+            </app-card-credit>
         </div>
+    </div>
+    <div *ngIf="!conditionCard" class="records-request-card">
         <div class="records-card-container">
-            <app-card-credit></app-card-credit>
-        </div>
-        <div class="records-card-container">
-            <app-card-credit></app-card-credit>
-        </div>
-        <div class="records-card-container">
-            <app-card-credit></app-card-credit>
+            <app-credit-template>
+            </app-credit-template>
         </div>
     </div>
 </body>

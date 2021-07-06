@@ -6,6 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Development server backend simulation with Stubby4node for login
+
+Run `npm run stubs` for a dev server. Stubby4node will run in the port `http://localhost:8882/`, [Stubby4node Documentacion](https://github.com/mrak/stubby4node).
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

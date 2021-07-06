@@ -9,6 +9,6 @@
         <a routerLink="/registros"><button class="header-button-records">Registros</button></a>
     </div>
     <div class="header-button-exit" *ngIf="showMenu">
-        <a routerLink=""><img class="header-button-exit-img" src="assets/icons/exit-button.svg"></a>
+        <a (click)="deleteToken()" routerLink="/login"><img class="header-button-exit-img" src="assets/icons/exit-button.svg"></a>
     </div>
 </div>

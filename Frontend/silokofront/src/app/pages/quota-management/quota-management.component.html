@@ -5,48 +5,27 @@
 <body class="quota-body-container">
     <div class="quota-request-form">
         <div class="quota-form-container">
-            <form-template
-                (newFormValue)="getClient($event)"
-                [showSecondPlaceholder]="showPassword"
-                [titleForm]="formTitle"
-                [firstPlaceholder]="documentLabel"
-                [buttonForm]="button">
+            <form-template (newFormValue)="getClient($event)" [showSecondPlaceholder]="showPassword"
+                [titleForm]="formTitle" [firstPlaceholder]="documentLabel" [buttonForm]="button">
             </form-template>
         </div>
         <div class="quota-card-container">
-            <app-card-simple
-                [titleCard]="titleClient"
-                [firstLabel]="namesClient"
-                [secondLabel]="surnamesClient"
-                [thirdLabel]="documentClient"
-                [firstInput]="namesClientInput"
-                [secondInput]="surnamesClientInput"
+            <app-card-simple [titleCard]="titleClient" [firstLabel]="namesClient" [secondLabel]="surnamesClient"
+                [thirdLabel]="documentClient" [firstInput]="namesClientInput" [secondInput]="surnamesClientInput"
                 [thirdInput]="documentClientInput">
             </app-card-simple>
         </div>
-
     </div>
     <div class="quota-body-divider"></div>
-
     <div class="quota-request-card">
         <div class="quota-card-update" *ngIf="conditionCard">
-        <app-card-quota
-            (saveQuota)="updateSave($event)"
-            [quotaInput]="quota">
-        </app-card-quota>
-
-
+            <app-card-quota (saveQuota)="updateSave($event)" [quotaInput]="quota">
+            </app-card-quota>
         </div>
         <div class="quota-simple-container" *ngIf="!conditionCard">
-            <app-card-simple
-            [titleCard]="titleQuota"
-            [firstLabel]="stateQuota"
-            [secondLabel]="totalQuota"
-            [thirdLabel]="freeQuota">
+            <app-card-simple [titleCard]="titleQuota" [firstLabel]="stateQuota" [secondLabel]="totalQuota"
+                [thirdLabel]="freeQuota">
             </app-card-simple>
         </div>
-
     </div>
-
-
 </body>

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Client } from 'src/app/services/models/client.interface';
 import { ClientService } from 'src/app/services/client.service';
 import { QuotaUpdateDto } from 'src/app/services/dto/quota-put.dto';
@@ -13,7 +13,6 @@ import { FormInputsDto } from 'src/app/services/dto/form-inputs.dto';
   styleUrls: ['./quota-management.component.scss']
 })
 export class QuotaManagementComponent implements OnInit {
-
   formTitle: string = "Consultar Cupo";
   documentLabel: string = "Cedula de Ciudadanía";
   button: string = "Consultar";
@@ -35,7 +34,7 @@ export class QuotaManagementComponent implements OnInit {
   client: Client;
   quota: Quota;
 
-  constructor(private clientService: ClientService, private quotaService: QuotaService, private cd: ChangeDetectorRef) { }
+  constructor(private clientService: ClientService, private quotaService: QuotaService) { }
 
   ngOnInit() {
   }

@@ -32,6 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { QuotaService } from './services/quota.service';
 import { ProductService } from './services/product.service';
 import { CreditService } from './services/credit.service';
+import { CreditTemplateComponent } from './components/credit-template/credit-template.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { CreditService } from './services/credit.service';
     TableClientsComponent,
     SelectDuesComponent,
     CardQuotaComponent,
+    CreditTemplateComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +76,7 @@ import { CreditService } from './services/credit.service';
     QuotaService,
     ProductService,
     CreditService,
+    CookieService,
     {
       provide: MAT_RADIO_DEFAULT_OPTIONS,
       useValue: { color: 'accent' },

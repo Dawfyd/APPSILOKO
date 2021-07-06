@@ -12,7 +12,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProduct(codeProduct:string): Observable<Product> {
+  getProduct(codeProduct: string): Observable<Product> {
     this.configUrl = `${environment.silokoUrl}/electrodomesticos/code/${codeProduct}`;
     return this.http.get<Product>(this.configUrl);
   }

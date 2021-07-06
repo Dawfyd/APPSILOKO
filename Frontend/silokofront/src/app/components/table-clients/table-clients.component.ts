@@ -2,22 +2,17 @@ import { AfterViewInit, Component, ViewChild, ViewEncapsulation } from '@angular
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ClientService } from 'src/app/services/client.service';
+import { Client } from 'src/app/services/models/client.interface';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
+export interface ClientDataDto {
+  cedulaCiudadania: string;
+  nombre: string;
+  apellido: string;
+  cupoMaximo: string;
+  cupoDisponible: string;
+  estadoCupo: string;
 }
-
-/** Constants used to fill up our data base. */
-const FRUITS: string[] = [
-  'blueberry', 'lychee', 'kiwi', 'mango', 'peach', 'lime', 'pomegranate', 'pineapple'
-];
-const NAMES: string[] = [
-  'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-  'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-];
 
 /**
  * @title Data table with sorting, pagination, and filtering.
@@ -30,24 +25,45 @@ const NAMES: string[] = [
 })
 export class TableClientsComponent implements AfterViewInit {
 
-  displayedColumns: string[] = ['Cedula de Ciudadania', 'name', 'progress', 'fruit','5', '6'];
-  dataSource: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['cedulaCiudadania', 'nombre', 'apellido', 'cupoMaximo', 'cupoDisponible', 'estadoCupo'];
+  dataSource: MatTableDataSource<ClientDataDto>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  clientDataDto: ClientDataDto;
+  clientDataArray: Array<ClientDataDto> = [];
+  client: Array<Client>;
+  estadoCupoString: string;
 
-  constructor() {
-
-    // Create 100 users
-    const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+  constructor(private clientService: ClientService) {
+    this.dataSource = new MatTableDataSource();
   }
 
   ngAfterViewInit() {
+    console.log("ngafter");
+    
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.clientService.getAllClient().subscribe((data: Client[]) => {
+      this.client = data;
+      for (let index = 0; index < data.length; index++) {
+        if (this.client[index].cupo.estadoCupo === true) {
+          this.estadoCupoString = "Activo"
+        } else {
+          this.estadoCupoString = "Bloqueado"
+        }
+        this.clientDataDto = {
+          cedulaCiudadania: this.client[index].cedulaCiudadania,
+          nombre: this.client[index].nombre,
+          apellido: this.client[index].apellido,
+          cupoMaximo: (this.client[index].cupo.cupoMaximo).toLocaleString('de-DE'),
+          cupoDisponible: (this.client[index].cupo.cupoDisponible).toLocaleString('de-DE'),
+          estadoCupo: this.estadoCupoString,
+        }
+        this.clientDataArray.push(this.clientDataDto);
+      }
+      this.dataSource = new MatTableDataSource(this.clientDataArray);
+    });
   }
 
   applyFilter(event: Event) {
@@ -58,17 +74,4 @@ export class TableClientsComponent implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-}
-
-/** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))]
-  };
 }

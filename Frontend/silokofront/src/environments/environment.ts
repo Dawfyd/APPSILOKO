@@ -5,6 +5,9 @@
 export const environment = {
   production: false,
   silokoUrl: 'http://localhost:8888',
+  endpoints: {
+    auth: 'http://localhost:8882/auth-service/v1/auth',
+  }
 };
 
 /*

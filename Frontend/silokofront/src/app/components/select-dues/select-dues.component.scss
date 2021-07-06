@@ -1,3 +1,10 @@
+.select-number-quota {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
 .select-radio-group {
   display: flex;
   flex-wrap: wrap;
@@ -36,4 +43,24 @@
   font-weight: 400;
   font-size: 1.25vw;
   color: rgba(0, 0, 0, 0.80)
+}
+.select-button-container {
+  display: flex;
+  justify-content: center;
+  width: 50vw;
+  height: 6.2vh;
+  padding-top: 5vh;
+}
+.select-form-button {
+  width: 22.5vw;
+  height: 6.2vh;
+  background-color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.4vh;
+  line-height: 2.5vmax;
+  color: #FFFFFF;
+  border-radius: 5px;
+  border: 0;
 }

@@ -6,14 +6,16 @@ import { QuotaManagementComponent } from './pages/quota-management/quota-managem
 import { ClientsComponent } from './pages/clients/clients.component';
 import { RecordsComponent } from './pages/records/records.component';
 import { CreditManagementComponent } from './pages/credit-management/credit-management.component';
+import { AuthenticatedGuard } from './services/authenticated.guard';
 
 const routes: Routes = [
-  { path: '', component:  LoginPageComponent},
-  { path: 'creditos', component:  CreditRequestComponent },
-  { path: 'cupo', component:  QuotaManagementComponent },
-  { path: 'clientes', component:  ClientsComponent },
-  { path: 'registros', component:  RecordsComponent },
-  { path: 'creditos-cajero', component:  CreditManagementComponent },
+  { path: '', redirectTo: 'creditos', pathMatch: 'full' },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'creditos', component: CreditRequestComponent, canActivate: [AuthenticatedGuard], },
+  { path: 'cupo', component: QuotaManagementComponent, canActivate: [AuthenticatedGuard], },
+  { path: 'clientes', component: ClientsComponent, canActivate: [AuthenticatedGuard], },
+  { path: 'registros', component: RecordsComponent, canActivate: [AuthenticatedGuard], },
+  { path: 'cajero', component: CreditManagementComponent },
 
 ];
 

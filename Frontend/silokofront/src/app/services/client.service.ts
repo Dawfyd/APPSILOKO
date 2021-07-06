@@ -12,8 +12,12 @@ export class ClientService {
 
   constructor(private http: HttpClient) { }
 
-  getClient(newItem?:string): Observable<Client> {
+  getClient(newItem?: string): Observable<Client> {
     this.configUrl = `${environment.silokoUrl}/clientes/${newItem}`;
     return this.http.get<Client>(this.configUrl);
+  }
+  getAllClient(): Observable<Client[]> {
+    this.configUrl = `${environment.silokoUrl}/clientes`;
+    return this.http.get<Client[]>(this.configUrl);
   }
 }

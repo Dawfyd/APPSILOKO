@@ -3,20 +3,16 @@
 </header>
 
 <body class="credit-body-container">
-
     <div class="credit-request-form">
-        <form-template
-        (newFormValue)="createCredit($event)"
-        [titleForm]="loginTitle"
-        [firstPlaceholder]="user"
-        [secondPlaceholder]="password"
-        [buttonForm]="button">
+        <form-template (newFormValue)="createCredit($event)" [titleForm]="loginTitle" [firstPlaceholder]="user"
+            [secondPlaceholder]="password" [buttonForm]="button">
         </form-template>
     </div>
     <div class="credit-body-divider"></div>
-    <div class="credit-request-card" >
-        <app-card-credit *ngIf="conditionCredit"
-        [creditInput]="credit">
-    </app-card-credit>
+    <div class="credit-request-card">
+        <app-card-credit *ngIf="conditionCredit" [creditInput]="credit">
+        </app-card-credit>
+        <app-credit-template *ngIf="!conditionCredit">
+        </app-credit-template>
     </div>
 </body>
