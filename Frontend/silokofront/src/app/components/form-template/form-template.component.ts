@@ -20,8 +20,8 @@ export class FormTemplateComponent implements OnInit {
 
 
   hide = false;
-  firstInput = new FormControl('', [Validators.required]);
-  secondInput = new FormControl('', [Validators.required]);
+  firstInput = new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]);
+  secondInput = new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(8)]);
 
   ngOnInit() {
     if(this.buttonForm == "Entrar"){
@@ -31,16 +31,22 @@ export class FormTemplateComponent implements OnInit {
   getErrorMessageFirstInput() {
     if (this.firstInput.hasError('required')) {
       return 'Ingresa el campo '+ this.firstPlaceholder;
+    } else if (this.firstInput.hasError('minlength')){
+      return "El campo requiere como minimo 5 caracteres";
+    } else if (this.firstInput.hasError('maxlength')) {
+      return "El campo requiere al menos 10 caracteres";
     }
-
     return this.firstInput.hasError(this.firstPlaceholder) ? 'Not a valid'+ this.firstPlaceholder : '';
   }
   getErrorMessageSecondInput() {
     if (this.secondInput.hasError('required')) {
       return 'Ingresa el campo ' + this.secondPlaceholder;
+    }else if (this.secondInput.hasError('minlength')){
+      return "El campo requiere como minimo 5 caracteres";
+    } else if (this.secondInput.hasError('maxlength')) {
+      return "El campo requiere al menos 8 caracteres";
     }
-
-    return this.secondInput.hasError( this.secondPlaceholder) ? 'Not a valid'+this.secondPlaceholder : '';
+    return this.secondInput.hasError(this.secondPlaceholder) ? 'Not a valid'+ this.secondPlaceholder : '';
   }
   sendForm(firstValueForm: string, secondValueForm: string) {
     let formInputs : FormInputsDto;

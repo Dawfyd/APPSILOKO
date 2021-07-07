@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { QuotaUpdateDto } from 'src/app/services/dto/quota-put.dto';
 import { Quota } from 'src/app/services/models/quota.interface';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-card-quota',
@@ -41,15 +41,24 @@ export class CardQuotaComponent implements OnInit {
     }
   }
   updateCard() {
-    let quotaUpdateDto: QuotaUpdateDto;
-    quotaUpdateDto = {
-      id: this.quotaInput.id,
-      cupoMaximo: this.secondInput,
-      estadoCupo: this.checked,
+    if (this.secondInput > 10000000) {
+      Swal.fire({
+        title: 'El cupo maximo es 10 millones',
+        icon: 'error',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK!'
+      })
+    } else {
+      let quotaUpdateDto: QuotaUpdateDto;
+      quotaUpdateDto = {
+        id: this.quotaInput.id,
+        cupoMaximo: this.secondInput,
+        estadoCupo: this.checked,
+      }
+      this.saveQuota.emit(quotaUpdateDto);
+      this.conditionCard = true;
     }
-    this.saveQuota.emit(quotaUpdateDto);
-    this.conditionCard = true;
-
   }
   updateOn() {
     this.conditionCard = false;

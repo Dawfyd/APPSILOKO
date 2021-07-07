@@ -6,7 +6,7 @@ import { QuotaManagementComponent } from './pages/quota-management/quota-managem
 import { ClientsComponent } from './pages/clients/clients.component';
 import { RecordsComponent } from './pages/records/records.component';
 import { CreditManagementComponent } from './pages/credit-management/credit-management.component';
-import { AuthenticatedGuard } from './services/authenticated.guard';
+import { AuthenticatedGuard } from './services/guards/authenticated.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'creditos', pathMatch: 'full' },

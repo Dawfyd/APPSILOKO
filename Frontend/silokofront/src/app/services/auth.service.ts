@@ -11,7 +11,9 @@ import { CookieService } from 'ngx-cookie-service';
 export class AuthService {
   private auth = false;
   private userData = null;
+
   constructor(private http: HttpClient, private cookies: CookieService) { }
+
   isAuthenticated(): Observable<boolean> {
     if (this.cookies.get("token") === "12345") {
       this.auth = true;
