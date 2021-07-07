@@ -5,6 +5,7 @@ import { FormInputsDto } from 'src/app/services/dto/form-inputs.dto';
 import { Client } from 'src/app/services/models/client.interface';
 import { Credit } from 'src/app/services/models/credit.interface';
 import { Quota } from 'src/app/services/models/quota.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-records',
@@ -35,15 +36,25 @@ export class RecordsComponent implements OnInit {
   getClient(newData: FormInputsDto) {
     this.conditionCard = false;
     this.clientService.getClient(newData.firstValue).subscribe((data: Client) => {
-      this.client = data[0];
-      this.quota = this.client.cupo;
-      this.namesClientInput = this.client.nombre;
-      this.surnamesClientInput = this.client.apellido;
-      this.documentClientInput = this.client.cedulaCiudadania;
-      this.creditService.getCredits(this.quota.id).subscribe((dataCredits: Credit[]) => {
-        this.credits = dataCredits;
-        this.conditionCard = true;
-      });
+      if (data[0] == null) {
+        Swal.fire({
+          title: "El cliente con el numero de cédula "+newData.firstValue + " no se encontro.",
+          icon: 'error',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'OK!'
+        })
+      } else {
+        this.client = data[0];
+        this.quota = this.client.cupo;
+        this.namesClientInput = this.client.nombre;
+        this.surnamesClientInput = this.client.apellido;
+        this.documentClientInput = this.client.cedulaCiudadania;
+        this.creditService.getCredits(this.quota.id).subscribe((dataCredits: Credit[]) => {
+          this.credits = dataCredits;
+          this.conditionCard = true;
+        });
+      }
     });
   }
 }

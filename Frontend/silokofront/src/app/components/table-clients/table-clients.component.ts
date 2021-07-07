@@ -3,16 +3,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ClientService } from 'src/app/services/client.service';
+import { ClientDataDto } from 'src/app/services/dto/client-data.dto';
 import { Client } from 'src/app/services/models/client.interface';
 
-export interface ClientDataDto {
-  cedulaCiudadania: string;
-  nombre: string;
-  apellido: string;
-  cupoMaximo: string;
-  cupoDisponible: string;
-  estadoCupo: string;
-}
 
 /**
  * @title Data table with sorting, pagination, and filtering.
@@ -41,9 +34,8 @@ export class TableClientsComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     console.log("ngafter");
-    
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+
+
     this.clientService.getAllClient().subscribe((data: Client[]) => {
       this.client = data;
       for (let index = 0; index < data.length; index++) {
@@ -63,6 +55,8 @@ export class TableClientsComponent implements AfterViewInit {
         this.clientDataArray.push(this.clientDataDto);
       }
       this.dataSource = new MatTableDataSource(this.clientDataArray);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 

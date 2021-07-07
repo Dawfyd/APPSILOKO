@@ -7,6 +7,7 @@ import { Product } from 'src/app/services/models/product.interface';
 import { Credit } from 'src/app/services/models/credit.interface';
 import { CreditService } from 'src/app/services/credit.service';
 import { CreditPostDto } from 'src/app/services/dto/credit-post.dto';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { CreditPostDto } from 'src/app/services/dto/credit-post.dto';
 export class CreditRequestComponent {
   loginTitle: string = "Solicitar Financiación de Electrodoméstico";
   user: string = "Cedula de Ciudadanía";
-  password: string = "Código de Artículo ";
+  password: string = "Código de Artículo";
   button: string = "Solicitar";
   client: Client;
   product: Product;
@@ -30,19 +31,39 @@ export class CreditRequestComponent {
   createCredit(newData: FormInputsDto) {
     this.conditionCredit = false;
     this.clientService.getClient(newData.firstValue).subscribe((dataClient: Client) => {
-      this.client = dataClient[0];
-      this.productService.getProduct(newData.secondValue).subscribe((dataProduct: Product) => {
-        this.product = dataProduct;
-        let newCreditPostDto: CreditPostDto;
-        newCreditPostDto = {
-          cupoId: this.client.cupo.id,
-          electrodomesticoId: dataProduct.id
-        }
-        this.creditService.createCredit(newCreditPostDto).subscribe((dataCredit: Credit) => {
-          this.credit = dataCredit;
-          this.conditionCredit = true;
+      if (dataClient[0] == null) {
+        Swal.fire({
+          title: "El cliente con el numero de cédula "+newData.firstValue + " no se encontro.",
+          icon: 'error',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'OK!'
+        })
+      } else {
+        this.client = dataClient[0];
+        this.productService.getProduct(newData.secondValue).subscribe((dataProduct: Product) => {
+          if (dataProduct == null) {
+            Swal.fire({
+              title: "El artículo con el código "+newData.secondValue + " no se encontro.",
+              icon: 'error',
+              showCancelButton: false,
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'OK!'
+            })
+          } else {
+            this.product = dataProduct;
+            let newCreditPostDto: CreditPostDto;
+            newCreditPostDto = {
+              cupoId: this.client.cupo.id,
+              electrodomesticoId: dataProduct.id
+            }
+            this.creditService.createCredit(newCreditPostDto).subscribe((dataCredit: Credit) => {
+              this.credit = dataCredit;
+              this.conditionCredit = true;
+            });
+          }
         });
-      });
+      }
     });
   }
 }

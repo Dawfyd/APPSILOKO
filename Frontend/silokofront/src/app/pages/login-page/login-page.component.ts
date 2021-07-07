@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormInputsDto } from 'src/app/services/dto/form-inputs.dto';
 import { UserLoginDto } from 'src/app/services/dto/user-login.dto';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login-page',
@@ -28,7 +29,13 @@ export class LoginPageComponent implements OnInit {
     this.authService.setToken(userData.token);
   }
   onLoginError(err) {
-    alert(err.statusText);
+    Swal.fire({
+      title: 'Usuario y/o Contraseña incorrectos',
+      icon: 'error',
+      showCancelButton: false,
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'OK!'
+    })
   }
   loginAdmin(dataUser: FormInputsDto) {
     this.userLoginDto = {
