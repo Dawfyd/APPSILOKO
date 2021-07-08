@@ -1,0 +1,8 @@
+com.sb.siloko
+com.sb.siloko.config
+com.sb.siloko.controllers
+com.sb.siloko.models.dto
+com.sb.siloko.models.entities
+com.sb.siloko.service
+com.sb.siloko.service.dao
+com.sb.siloko.service.repository

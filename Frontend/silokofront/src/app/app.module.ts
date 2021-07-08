@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormTemplateComponent } from './components/form-template/form-template.component';
@@ -34,6 +33,7 @@ import { ProductService } from './services/product.service';
 import { CreditService } from './services/credit.service';
 import { CreditTemplateComponent } from './components/credit-template/credit-template.component';
 import { CookieService } from 'ngx-cookie-service';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -68,6 +68,7 @@ import { CookieService } from 'ngx-cookie-service';
     MatRadioModule,
     MatSlideToggleModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
 
   ],
   entryComponents: [],

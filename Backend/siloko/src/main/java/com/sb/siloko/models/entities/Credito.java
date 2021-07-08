@@ -35,12 +35,13 @@ public class Credito {
 
     @Column(name = "SALDO_PENDIENTE")
     private Integer saldoPendiente;
+
     // Estado del credito: Aprobado - Rechazado - Activo - Finalizado
     @Column(name = "ESTADO", nullable = false)
     @Size(min = 6, max = 10, message  = "El estado solo puede tener entre 6 y 10 caracteres")
     private String estado;
 
-    //Causal de rechazo, en caso de que el credito halla sido rechazado.
+    //Causal de rechazo, Exceso de Cupo,Bloqueo de Cupo, sin Producto Activo,Aprobado
     @Column(name = "CAUSAL")
     private String causal;
 

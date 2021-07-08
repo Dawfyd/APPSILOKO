@@ -49,7 +49,7 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
         cliente_id_cupo                   NUMBER;
         nuevo_id_cupo                     cupo.id%TYPE := 0;
         CURSOR c_cliente IS
-        SELECT
+        SELECT /*+ NO_INDEX(cliente)*/
             id,
             cupo_id
         FROM
@@ -68,7 +68,7 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
             proceso_masivo.puntaje_planes_telefonia(cliente_id, puntaje_cliente_planes_telefonia);
             puntaje_total_cliente := puntaje_cliente_antiguedad + puntaje_cliente_ciudad + puntaje_cliente_estrato + puntaje_cliente_planes_telefonia;
 
-            puntaje_total_cliente := puntaje_total_cliente * 200000;
+            puntaje_total_cliente := puntaje_total_cliente * 300000;
             IF ( cliente_id_cupo IS NULL ) THEN
                 INSERT INTO cupo (
                     cupo_maximo,
@@ -149,7 +149,7 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
 
         END LOOP;
 
-        SELECT
+        SELECT /*+ INDEX(cupo)*/
             cupo_maximo
         INTO cupo_maximo_cliente
         FROM
@@ -193,7 +193,7 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
     ) IS
         ciudad_cliente NVARCHAR2(30);
     BEGIN
-        SELECT
+        SELECT /*+ INDEX(cliente)*/
             ciudad
         INTO ciudad_cliente
         FROM
@@ -223,7 +223,7 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
     ) IS
         estrato_cliente NUMBER;
     BEGIN
-        SELECT
+        SELECT /*+ INDEX(cliente)*/
             estrato
         INTO estrato_cliente
         FROM
@@ -251,8 +251,9 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
     BEGIN
         op_puntaje_planes_telefonia := 0;
         FOR plan_telefonia IN (
-            SELECT
-                *
+            SELECT /*+ INDEX(plan_telefonia )*/ 
+            estado,
+            nombre
             FROM
                 plan_telefonia
             WHERE
@@ -289,8 +290,10 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
         anios_cliente        NUMBER := 0;
     BEGIN
         FOR fila IN (
-            SELECT
-                *
+            SELECT /*+ INDEX(plan_telefonia )*/
+                f_creacion,
+                f_modificacion,
+                estado
             FROM
                 plan_telefonia
             WHERE

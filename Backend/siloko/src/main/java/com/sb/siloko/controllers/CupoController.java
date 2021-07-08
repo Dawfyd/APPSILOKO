@@ -1,4 +1,4 @@
-package com.sb.siloko.controller;
+package com.sb.siloko.controllers;
 
 import java.util.*;
 
@@ -6,13 +6,7 @@ import com.sb.siloko.models.dto.CupoPutDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import com.sb.siloko.models.entities.Cupo;
 import com.sb.siloko.models.dto.CupoPostDto;
 import com.sb.siloko.service.CupoService;
@@ -35,7 +29,7 @@ public class CupoController {
 	}
 
 	@PostMapping("/cupos/add")
-	public Cupo addCupo(CupoPostDto cupoPostDto) {
+	public Cupo addCupo(@RequestBody CupoPostDto cupoPostDto) {
 		return cupoService.saveCupo(cupoPostDto);
 	}
 
@@ -44,8 +38,9 @@ public class CupoController {
 		return cupoService.deleteCupo(id);
 	}
 
+
 	@PutMapping("/cupos/update")
-	public String updateCupo(CupoPutDto cupoPutDto) {
+	public Cupo updateCupo(@RequestBody CupoPutDto cupoPutDto) {
 		return cupoService.updateCupo(cupoPutDto);
 	}
 

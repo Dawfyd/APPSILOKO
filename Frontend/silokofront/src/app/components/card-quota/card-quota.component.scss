@@ -1,3 +1,5 @@
+@import "/src/assets/theme/styles.scss";
+
 .card-quota-container-button {
     z-index: 2;
     width: 40.3vw;
@@ -26,75 +28,47 @@
 
 }
 .card-quota-label-title {
+    @include mixin-card-style;
     height: 5.5vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 700;
     font-size: 1.4vw;
     line-height: 1.5vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color: rgba(0, 0, 0, 0.87);
 }
 .card-quota-label-text {
+    @include mixin-card-style;
     height: 4.25vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 500;
     font-size: 1.25vw;
     line-height: 1.35vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color: rgba(0, 0, 0, 0.87);
 }
 .card-quota-label-description {
+    @include mixin-card-style;
     height: 4.9vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 500;
     font-size: 1.11vw;
     line-height: 1.2vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color:  rgba(0, 0, 0, 0.87);
-
 }
 .card-quota-text-description {
+    @include mixin-card-style;
     height: 4.9vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 100;
     font-size: 0.97vw;
     line-height: 1.1vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color: rgba(0, 0, 0, 0.87);
 }
 .card-quota-slide-container {
     height: 4.25vh;
     width: 100%;
     display: flex;
     align-items: center;
-
-
 }
 
 .card-quota-label-state-text {
+    @include mixin-card-style;
     width: 80%;
     height: 4.25vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 500;
     font-size: 1.25vw;
     line-height: 1.35vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color: rgba(0, 0, 0, 0.87);
 }
 .card-quota-slide,  .mat-slide-toggle-bar{
     width: 20%;

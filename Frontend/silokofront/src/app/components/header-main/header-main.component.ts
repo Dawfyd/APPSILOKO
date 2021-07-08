@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 
@@ -7,12 +8,34 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './header-main.component.html',
   styleUrls: ['./header-main.component.scss']
 })
-export class HeaderMainComponent {
+export class HeaderMainComponent implements OnInit {
+
   @Input() showMenu: boolean = true;
 
-  constructor(private authService: AuthService) {}
+  fontWeightCredit: number;
+  fontWeightQuota: number;
+  fontWeightClients: number;
+  fontWeightRecords: number;
 
-  deleteToken(){
+  constructor(private authService: AuthService, private router: Router) { }
+
+  ngOnInit() {
+    switch (this.router.url) {
+      case "/creditos":
+        this.fontWeightCredit = 700
+        break;
+      case "/cupo":
+        this.fontWeightQuota = 700
+        break;
+      case "/clientes":
+        this.fontWeightClients = 700
+        break;
+      case "/registros":
+        this.fontWeightRecords = 700
+        break;
+    }
+  }
+  deleteToken() {
     this.authService.deleteToken();
   }
 }

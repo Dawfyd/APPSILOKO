@@ -5,6 +5,6 @@ DECLARE
       
 BEGIN -- Funcion PL Principal
 
-     proceso_masivo.orquestador_cupo(estado);
+   proceso_masivo.orquestador_cupo(estado);
 
 end;

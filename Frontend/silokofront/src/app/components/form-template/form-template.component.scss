@@ -1,10 +1,11 @@
+@import "/src/assets/theme/styles.scss";
+
 .form-template-container{
   width: 23.6vw;
   height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 .form-template-title{
   text-align: center;
@@ -45,8 +46,6 @@
   font-size: 1.35vw!important;
   padding-left: 10px!important;
   padding: 3.5px 10px 0vmax 10px!important;
-
-
 }
 .mat-error {
   color: #9E2A2B!important;
@@ -56,29 +55,14 @@
  color: rgba(0, 0, 0, 0.6)
 }
 .form-template-container-button{
-
   height: 8vh;
   display: flex;
   align-items:flex-end;
   text-align: center;
 }
 .form-template-button{
-  width: 22.5vw;
-  height: 6.2vh;
-  background-color: black;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 2.4vh;
-  line-height: 2.5vmax;
-  color: #FFFFFF;
-  border-radius: 5px;
-  border: 0;
+  @include mixin-button-style;
 }
-
-
-
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

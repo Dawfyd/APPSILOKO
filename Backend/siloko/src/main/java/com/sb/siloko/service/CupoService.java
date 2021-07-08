@@ -18,7 +18,7 @@ public interface CupoService {
 
 	public String deleteCupo(Long id);
 
-	public String updateCupo(CupoPutDto cupoPutDto);
+	public Cupo updateCupo(CupoPutDto cupoPutDto);
 
 	public Boolean callProcesoMasivo();
 }

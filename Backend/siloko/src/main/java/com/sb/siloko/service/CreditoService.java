@@ -21,5 +21,5 @@ public interface CreditoService {
 
 	public String deleteCredito(Long id);
 
-	public String updateCredito(CreditoPutDto creditoPutDto);
+	public Credito updateCredito(CreditoPutDto creditoPutDto);
 }

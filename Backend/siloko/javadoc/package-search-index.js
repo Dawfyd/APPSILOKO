@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.sb.siloko"},{"l":"com.sb.siloko.config"},{"l":"com.sb.siloko.controllers"},{"l":"com.sb.siloko.models.dto"},{"l":"com.sb.siloko.models.entities"},{"l":"com.sb.siloko.service"},{"l":"com.sb.siloko.service.dao"},{"l":"com.sb.siloko.service.repository"}];updateSearchResults();

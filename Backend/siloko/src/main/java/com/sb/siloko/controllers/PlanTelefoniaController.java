@@ -1,5 +1,4 @@
-package com.sb.siloko.controller;
-
+package com.sb.siloko.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

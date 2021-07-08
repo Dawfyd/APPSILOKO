@@ -3,10 +3,10 @@
         <img class="header-logo-img" src="assets/logo/logo-black.svg">
     </div>
     <div class="header-main-menu" *ngIf="showMenu">
-        <a routerLink="/creditos"><button class="header-button-credit">Solicitud de Crédito</button></a>
-        <a routerLink="/cupo"><button class="header-button-quota">Gestión de Cupo</button></a>
-        <a routerLink="/clientes"><button class="header-button-clients">Clientes</button></a>
-        <a routerLink="/registros"><button class="header-button-records">Registros</button></a>
+        <a routerLink="/creditos"><button [ngStyle]="{'font-weight': fontWeightCredit}" class="header-button-credit">Solicitud de Crédito</button></a>
+        <a routerLink="/cupo"><button [ngStyle]="{'font-weight': fontWeightQuota}" class="header-button-quota">Gestión de Cupo</button></a>
+        <a routerLink="/clientes"><button [ngStyle]="{'font-weight': fontWeightClients}" class="header-button-clients">Clientes</button></a>
+        <a routerLink="/registros"><button [ngStyle]="{'font-weight': fontWeightRecords}" class="header-button-records">Registros</button></a>
     </div>
     <div class="header-button-exit" *ngIf="showMenu">
         <a (click)="deleteToken()" routerLink="/login"><img class="header-button-exit-img" src="assets/icons/exit-button.svg"></a>

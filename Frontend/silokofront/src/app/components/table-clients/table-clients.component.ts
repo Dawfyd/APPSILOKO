@@ -7,9 +7,7 @@ import { ClientDataDto } from 'src/app/services/dto/client-data.dto';
 import { Client } from 'src/app/services/models/client.interface';
 
 
-/**
- * @title Data table with sorting, pagination, and filtering.
- */
+
 @Component({
   encapsulation: ViewEncapsulation.None,
   selector: 'app-table-clients',
@@ -33,8 +31,6 @@ export class TableClientsComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log("ngafter");
-
 
     this.clientService.getAllClient().subscribe((data: Client[]) => {
       this.client = data;
@@ -48,15 +44,17 @@ export class TableClientsComponent implements AfterViewInit {
           cedulaCiudadania: this.client[index].cedulaCiudadania,
           nombre: this.client[index].nombre,
           apellido: this.client[index].apellido,
-          cupoMaximo: (this.client[index].cupo.cupoMaximo).toLocaleString('de-DE'),
-          cupoDisponible: (this.client[index].cupo.cupoDisponible).toLocaleString('de-DE'),
+          cupoMaximo: (this.client[index].cupo.cupoMaximo),
+          cupoDisponible: (this.client[index].cupo.cupoDisponible),
           estadoCupo: this.estadoCupoString,
         }
         this.clientDataArray.push(this.clientDataDto);
       }
+
       this.dataSource = new MatTableDataSource(this.clientDataArray);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+
     });
   }
 

@@ -128,7 +128,7 @@ public class CreditoServiceImpl implements CreditoService {
 	}
 
 	@Override
-	public String updateCredito(CreditoPutDto creditoPutDto) {
+	public Credito updateCredito(CreditoPutDto creditoPutDto) {
 		Long creditoId = creditoPutDto.getId();
 		if (creditoRepository.findById(creditoId).isPresent()) {
 			Credito creditoUpdate = creditoRepository.getOne(creditoId);
@@ -136,8 +136,8 @@ public class CreditoServiceImpl implements CreditoService {
 			creditoUpdate.setNumeroCuotas(creditoPutDto.getNumeroCuotas());
 			creditoUpdate.setFechaModificacion(new Date());
 			creditoRepository.save(creditoUpdate);
-			return "credito modificado";
+			return creditoUpdate;
 		}
-		return "Error al modificar el credito";
+		return null;
 	}
 }

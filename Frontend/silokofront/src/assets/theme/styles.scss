@@ -1,0 +1,22 @@
+@mixin mixin-button-style {
+    width: 22.5vw;
+    height: 6.2vh;
+    background-color: black;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4vh;
+    line-height: 2.5vmax;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 0;
+  }
+
+  @mixin mixin-card-style {
+    font-family: Poppins;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.87);
+}
