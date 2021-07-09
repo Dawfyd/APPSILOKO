@@ -18,7 +18,10 @@ import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-
+/**
+ * Entidad para la creacion de la tabla CREDITO
+ * @author David Hoyos
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

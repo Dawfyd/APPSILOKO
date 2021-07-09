@@ -35,7 +35,9 @@ export class RecordsComponent implements OnInit {
   }
   getClient(newData: FormInputsDto) {
     this.conditionCard = false;
+    //Obtener cliente con la cédula de ciudadanía
     this.clientService.getClient(newData.firstValue).subscribe((data: Client) => {
+      //Verificar que existe un cliente con la cédula de ciudadanía dada
       if (data[0] == null) {
         Swal.fire({
           title: "El cliente con el numero de cédula "+newData.firstValue + " no se encontro.",
@@ -45,12 +47,15 @@ export class RecordsComponent implements OnInit {
           confirmButtonText: 'OK!'
         })
       } else {
+        //Se guarda el cliente
         this.client = data[0];
         this.quota = this.client.cupo;
         this.namesClientInput = this.client.nombre;
         this.surnamesClientInput = this.client.apellido;
         this.documentClientInput = this.client.cedulaCiudadania;
+        //Obtener creditos con la foranea cupo_id
         this.creditService.getCredits(this.quota.id).subscribe((dataCredits: Credit[]) => {
+          //Se guardan los creditos para mostrarlos
           this.credits = dataCredits;
           this.conditionCard = true;
         });

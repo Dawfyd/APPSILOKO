@@ -13,7 +13,10 @@ import org.springframework.stereotype.Component;
 import com.sb.siloko.models.entities.Cupo;
 import com.sb.siloko.models.dto.CupoPostDto;
 import com.sb.siloko.service.repository.CupoRepository;
-
+/**
+ * Componente que implementa el servicio de cupos
+ * @author David Hoyos
+ */
 @Component
 public class CupoServiceImpl implements CupoService {
 

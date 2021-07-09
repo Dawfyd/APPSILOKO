@@ -7,7 +7,6 @@ import { ClientDataDto } from 'src/app/services/dto/client-data.dto';
 import { Client } from 'src/app/services/models/client.interface';
 
 
-
 @Component({
   encapsulation: ViewEncapsulation.None,
   selector: 'app-table-clients',
@@ -31,9 +30,10 @@ export class TableClientsComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-
+    //Obtener todos los clientes
     this.clientService.getAllClient().subscribe((data: Client[]) => {
       this.client = data;
+      //For para mapear los clientes y sus cupos a un DTO sin anidamiento para el dataSource
       for (let index = 0; index < data.length; index++) {
         if (this.client[index].cupo.estadoCupo === true) {
           this.estadoCupoString = "Activo"

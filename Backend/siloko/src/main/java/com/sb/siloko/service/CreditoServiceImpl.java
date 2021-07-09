@@ -13,6 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.sb.siloko.models.entities.Credito;
 import org.springframework.stereotype.Component;
 
+/**
+ * Componente que implementa el servicio de creditos
+ * @author David Hoyos
+ */
 @Component
 public class CreditoServiceImpl implements CreditoService {
 

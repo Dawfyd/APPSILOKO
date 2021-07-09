@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.List;
 
+/**
+ * Componente que implementa el servicio de electrodomesticos
+ * @author David Hoyos
+ */
 @Component
 public class ElectrodomesticoServiceImpl implements ElectrodomesticoService {
     @Autowired

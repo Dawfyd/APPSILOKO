@@ -10,6 +10,10 @@ import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
 
+/**
+ * Clase principal de Java con configuracion de CORS
+ * @author David Hoyos
+ */
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class SilokoApplication {
 

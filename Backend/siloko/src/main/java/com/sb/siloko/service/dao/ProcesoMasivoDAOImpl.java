@@ -7,7 +7,10 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 import java.sql.Types;
 import java.util.Map;
-
+/**
+ * Implementacion del DAO para ejecutar el proceso masivo
+ * @author David Hoyos
+ */
 @Repository
 public class ProcesoMasivoDAOImpl implements ProcesoMasivoDAO {
 

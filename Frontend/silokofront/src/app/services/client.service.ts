@@ -11,11 +11,12 @@ export class ClientService {
   private configUrl: string;
 
   constructor(private http: HttpClient) { }
-
-  getClient(newItem?: string): Observable<Client> {
-    this.configUrl = `${environment.silokoUrl}/clientes/${newItem}`;
+  //Metodo GET para obtener un cliente por su cedula de ciudadania
+  getClient(identificationNumber?: string): Observable<Client> {
+    this.configUrl = `${environment.silokoUrl}/clientes/${identificationNumber}`;
     return this.http.get<Client>(this.configUrl);
   }
+  //Metodo GET para obtener todos los clientes
   getAllClient(): Observable<Client[]> {
     this.configUrl = `${environment.silokoUrl}/clientes`;
     return this.http.get<Client[]>(this.configUrl);

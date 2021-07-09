@@ -8,11 +8,12 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthenticatedGuard implements CanActivate {
+  
   constructor(private auth: AuthService, private router: Router) { }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log(`Accediendo a la ruta ${state.url}`);
+    //Verifica si el metodo isAuthenticated de el servicio de autentificacion es true o false
     return this.auth.isAuthenticated()
       .pipe(
         tap((isAuthenticated) => {

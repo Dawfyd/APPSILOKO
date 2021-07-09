@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.sb.siloko.models.entities.Cliente;
 import com.sb.siloko.service.repository.ClienteRepository;
-
+/**
+ * Componente que implementa el servicio de clientes
+ * @author David Hoyos
+ */
 @Component
 public class ClienteServiceImpl implements ClienteService {
 

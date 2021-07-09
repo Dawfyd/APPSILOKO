@@ -25,6 +25,7 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
   onLoginSuccess(userData) {
+    //Redirigir usuario logueado a la pagina de creditos
     this.router.navigateByUrl('/creditos');
     this.authService.setToken(userData.token);
   }
@@ -41,7 +42,7 @@ export class LoginPageComponent implements OnInit {
     this.userLoginDto = {
       user: dataUser.firstValue,
       password: dataUser.secondValue,
-    }
+    } //Obtener usuario dummy de el servicio de autentificacion ->  user: admin, password: admin
       this.authService
         .authenticate(this.userLoginDto)
         .subscribe(

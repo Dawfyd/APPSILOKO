@@ -5,6 +5,10 @@ import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+/**
+ * Entidad para la creacion de la tabla ELECTRODOMESTICO
+ * @author David Hoyos
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

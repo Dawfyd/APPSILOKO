@@ -48,13 +48,14 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
         cliente_id                        NUMBER;
         cliente_id_cupo                   NUMBER;
         nuevo_id_cupo                     cupo.id%TYPE := 0;
+        antiguo_cupo_maximo               NUMBER;
         CURSOR c_cliente IS
-        SELECT /*+ NO_INDEX(cliente)*/
+        --SYS_C0032633 es el INDEX de la PK CLIENTE
+        SELECT /*+ NO_INDEX(SYS_C0032633)*/
             id,
             cupo_id
         FROM
             cliente;
-
     BEGIN
         OPEN c_cliente;
         LOOP
@@ -67,8 +68,8 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
             proceso_masivo.puntaje_estrato(cliente_id, puntaje_cliente_estrato);
             proceso_masivo.puntaje_planes_telefonia(cliente_id, puntaje_cliente_planes_telefonia);
             puntaje_total_cliente := puntaje_cliente_antiguedad + puntaje_cliente_ciudad + puntaje_cliente_estrato + puntaje_cliente_planes_telefonia;
-
             puntaje_total_cliente := puntaje_total_cliente * 300000;
+            
             IF ( cliente_id_cupo IS NULL ) THEN
                 INSERT INTO cupo (
                     cupo_maximo,
@@ -85,24 +86,31 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
                     cupo_id = nuevo_id_cupo
                 WHERE
                     id = cliente_id;
-
-            ELSE
-                UPDATE cupo
-                SET
-                    cupo_maximo = puntaje_total_cliente
+            ELSE 
+                --SYS_C0032644 es el INDEX de la PK CUPO
+                SELECT /*+ INDEX(SYS_C0032644)*/ cupo_maximo
+                INTO antiguo_cupo_maximo
+                FROM
+                    cupo
                 WHERE
                     id = cliente_id_cupo;
 
-                proceso_masivo.actualizar_cupo(cliente_id_cupo);
-
+                    IF ( antiguo_cupo_maximo < puntaje_total_cliente ) THEN
+                    UPDATE cupo
+                    SET
+                        cupo_maximo = puntaje_total_cliente
+                    WHERE
+                        id = cliente_id_cupo;
+    
+                    
+                    END IF;
+            proceso_masivo.actualizar_cupo(cliente_id_cupo);
             END IF;
 
         END LOOP;
 
-
-
-            CLOSE c_cliente;
-                    op_resultado := 0;
+        CLOSE c_cliente;
+        op_resultado := 0;
     EXCEPTION
         WHEN OTHERS THEN
             op_resultado := 1;
@@ -146,10 +154,9 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
             END IF;
 
             saldo_pendiente_total := credito_saldo_total + saldo_pendiente_total;
-
         END LOOP;
-
-        SELECT /*+ INDEX(cupo)*/
+        --SYS_C0032644 es el INDEX de la PK CUPO
+        SELECT /*+ INDEX(SYS_C0032644)*/
             cupo_maximo
         INTO cupo_maximo_cliente
         FROM
@@ -193,7 +200,8 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
     ) IS
         ciudad_cliente NVARCHAR2(30);
     BEGIN
-        SELECT /*+ INDEX(cliente)*/
+    --SYS_C0032633 es el INDEX de la PK CLIENTE
+        SELECT /*+ INDEX(SYS_C0032633)*/
             ciudad
         INTO ciudad_cliente
         FROM
@@ -223,7 +231,8 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
     ) IS
         estrato_cliente NUMBER;
     BEGIN
-        SELECT /*+ INDEX(cliente)*/
+    --SYS_C0032633 es el INDEX de la PK CLIENTE
+        SELECT /*+ INDEX(SYS_C0032633)*/
             estrato
         INTO estrato_cliente
         FROM
@@ -251,9 +260,10 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
     BEGIN
         op_puntaje_planes_telefonia := 0;
         FOR plan_telefonia IN (
-            SELECT /*+ INDEX(plan_telefonia )*/ 
-            estado,
-            nombre
+        --CID_INDEX es el INDEX de la FK CLIENTE ID
+            SELECT /*+ INDEX(CID_INDEX )*/
+                estado,
+                nombre
             FROM
                 plan_telefonia
             WHERE
@@ -290,7 +300,8 @@ CREATE OR REPLACE PACKAGE BODY proceso_masivo IS
         anios_cliente        NUMBER := 0;
     BEGIN
         FOR fila IN (
-            SELECT /*+ INDEX(plan_telefonia )*/
+        --CID_INDEX es el INDEX de la FK CLIENTE ID
+            SELECT /*+ INDEX(CID_INDEX )*/
                 f_creacion,
                 f_modificacion,
                 estado

@@ -7,8 +7,13 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+// Url para acceder a el swagger
 //http://localhost:8888/swagger-ui.html#/
-//https://editor.swagger.io/
+
+/**
+ * Configuracion de Swagger para la firma de la API
+ * @author David Hoyos
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
