@@ -41,6 +41,7 @@ export class QuotaManagementComponent implements OnInit {
   }
 
   updateSave(quotaUpdateDto: QuotaUpdateDto) {
+    //Alerta para confirmar cambios
     Swal.fire({
       title: '¿Estas Seguro?',
       text: "¿Quieres guardar los cambios?",
@@ -62,7 +63,9 @@ export class QuotaManagementComponent implements OnInit {
           timer: 1000
         })
         this.conditionCard = false;
+        //Se envia el DTO anteriormente mapeado a el servicio para que haga PUT de el cupo.
         this.quotaService.updateQuota(quotaUpdateDto).subscribe((data: Quota) => {
+          //Se guarda el cupo actualizado para mostrarlo
           this.quota = {
             id: data.id,
             cupoDisponible: data.cupoDisponible,
@@ -77,8 +80,9 @@ export class QuotaManagementComponent implements OnInit {
   }
   getClient(newData: FormInputsDto) {
     this.conditionCard = false;
+    //Obtener cliente con la cédula de ciudadanía
     this.clientService.getClient(newData.firstValue).subscribe((data: Client) => {
-
+      //Verificar que existe un cliente con la cédula de ciudadanía dada
       if (data[0] == null) {
         Swal.fire({
           title: "El cliente con el numero de cédula "+newData.firstValue + " no se encontro.",
@@ -88,6 +92,7 @@ export class QuotaManagementComponent implements OnInit {
           confirmButtonText: 'OK!'
         })
       } else {
+        //Se guardan datos de el cliente
         this.client = data[0];
         this.quota = this.client.cupo;
         this.namesClientInput = this.client.nombre;

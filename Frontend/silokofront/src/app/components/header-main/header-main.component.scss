@@ -1,3 +1,14 @@
+@mixin mixin-header-main-label {
+    height: 5vh;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4vw;
+    line-height: 20px;
+    color: #18191F;
+    background-color: white;
+    border: 0;
+}
 .header-main-container {
     position: absolute;
     top: 0;
@@ -13,14 +24,12 @@
     display: flex;
     height: 7vh;
     width: 40%;
-
 }
 .header-main-menu{
     width: 50%;
     height: 7vh;
     display: flex;
     align-items: center;
-
 }
 .header-button-exit {
     width: 10%;
@@ -34,52 +43,20 @@
     padding-left: 5vw;
 }
 .header-button-credit {
-    height: 5vh;
+    @include mixin-header-main-label;
     width:17vw;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.4vw;
-    line-height: 20px;
-    color: #18191F;
-    background-color: white;
-    border: 0;
 }
 .header-button-quota {
-    height: 5vh;
+    @include mixin-header-main-label;
     width: 15vw;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.4vw;
-    line-height: 20px;
-    color: #18191F;
-    background-color: white;
-    border: 0;
 }
 .header-button-clients {
-    height: 5vh;
+    @include mixin-header-main-label;
     width: 9vw;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.4vw;
-    line-height: 20px;
-    color: #18191F;
-    background-color: white;
-    border: 0;
 }
 .header-button-records{
-    height: 5vh;
+    @include mixin-header-main-label;
     width: 9vw;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.4vw;
-    line-height: 20px;
-    color: #18191F;
-    background-color: white;
-    border: 0;
 }
 .header-button-exit-img {
     width: 2.1vmax;

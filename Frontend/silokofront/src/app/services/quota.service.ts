@@ -14,11 +14,12 @@ export class QuotaService {
   private configUrl: string;
 
   constructor(private http: HttpClient) { }
-
+  //Metodo PUT para actualizar un cupo
   updateQuota(quotaUpdateDto: QuotaUpdateDto): Observable<Quota> {
     this.configUrl = `${environment.silokoUrl}/cupos/update`;
     return this.http.put<Quota>(this.configUrl, quotaUpdateDto);
   }
+  //Metodo POST para ejecutar el proceso masivo
   runMassiveProcess(): Observable<MassiveProcessDto> {
     this.configUrl = `${environment.silokoUrl}/cupos/asignar`;
     return this.http.post<MassiveProcessDto>(this.configUrl, {});

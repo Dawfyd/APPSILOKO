@@ -1,3 +1,5 @@
+@import "/src/assets/theme/styles.scss";
+
 .credit-template-container {
     width: 40.3vw;
     border: 1px solid #dfdfdf;
@@ -17,63 +19,38 @@
     padding-right: 1vw;
 }
 .credit-template-label-title {
+    @include mixin-card-style;
     height: 4.4vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 700;
     font-size: 1.25vw;
     line-height: 1.35vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color: rgba(0, 0, 0, 0.87);
+
 }
 .credit-template-label-text {
+    @include mixin-card-style;
     height: 3vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 500;
     font-size: 1.11vw;
     line-height: 1.2vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color: rgba(0, 0, 0, 0.87);
 }
 .credit-template-label-text-bold{
+    @include mixin-card-style;
     height: 3vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 500;
     font-size: 1.25vw;
     line-height: 1.35vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color: rgba(0, 0, 0, 0.87);
 }
 .credit-template-label-description {
+    @include mixin-card-style;
     height: 4.9vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 500;
     font-size: 1.11vw;
     line-height: 1.2vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color:  rgba(0, 0, 0, 0.87);
-
 }
 .credit-template-text-description {
+    @include mixin-card-style;
     height: 4.9vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 100;
     font-size: 0.97vw;
     line-height: 1.1vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color: rgba(0, 0, 0, 0.87);
 }

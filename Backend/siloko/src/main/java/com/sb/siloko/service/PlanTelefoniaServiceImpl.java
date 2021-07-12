@@ -6,6 +6,10 @@ import org.springframework.stereotype.Component;
 import com.sb.siloko.models.entities.PlanTelefonia;
 import com.sb.siloko.service.repository.PlanTelefoniaRepository;
 
+/**
+ * Componente que implementa el servicio de planes de telefonia
+ * @author David Hoyos
+ */
 @Component
 public class PlanTelefoniaServiceImpl implements PlanTelefoniaService {
 

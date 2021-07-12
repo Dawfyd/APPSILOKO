@@ -13,7 +13,10 @@ import org.springframework.stereotype.Component;
 import com.sb.siloko.models.entities.Cupo;
 import com.sb.siloko.models.dto.CupoPostDto;
 import com.sb.siloko.service.repository.CupoRepository;
-
+/**
+ * Componente que implementa el servicio de cupos
+ * @author David Hoyos
+ */
 @Component
 public class CupoServiceImpl implements CupoService {
 
@@ -69,7 +72,7 @@ public class CupoServiceImpl implements CupoService {
 	}
 
 	@Override
-	public String updateCupo(CupoPutDto cupoPutDto) {
+	public Cupo updateCupo(CupoPutDto cupoPutDto) {
 		Long cupoId = cupoPutDto.getId();
 		if (cupoRepository.findById(cupoId).isPresent()) {
 			Cupo cupoToUpdate = cupoRepository.getOne(cupoId);
@@ -82,13 +85,12 @@ public class CupoServiceImpl implements CupoService {
 			}
 			cupoToUpdate.setCupoDisponible(cupoPutDto.getCupoMaximo()-totalSaldosPendientes);
 			cupoRepository.save(cupoToUpdate);
-			return "cupo modificado";
+			return cupoToUpdate;
 		}
-		return "Error al modificar el cupo";
+		return null;
 	}
 	@Override
 	public Boolean callProcesoMasivo() {
 		return procesoMasivoDAO.executeProcesoMasivo();
 	}
-
 }

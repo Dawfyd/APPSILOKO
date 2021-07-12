@@ -28,9 +28,12 @@ export class CreditRequestComponent {
   constructor(
     private clientService: ClientService, private productService: ProductService, private creditService: CreditService) { }
 
+
   createCredit(newData: FormInputsDto) {
     this.conditionCredit = false;
+    //Obtener cliente con la cédula de ciudadanía
     this.clientService.getClient(newData.firstValue).subscribe((dataClient: Client) => {
+      //Verificar que existe un cliente con la cédula de ciudadanía dada
       if (dataClient[0] == null) {
         Swal.fire({
           title: "El cliente con el numero de cédula "+newData.firstValue + " no se encontro.",
@@ -41,7 +44,9 @@ export class CreditRequestComponent {
         })
       } else {
         this.client = dataClient[0];
+        //Obtener electrodomestico con el codigo de articulo
         this.productService.getProduct(newData.secondValue).subscribe((dataProduct: Product) => {
+          //Verificar que existe un electrodomestico con el codigo de articulo dado
           if (dataProduct == null) {
             Swal.fire({
               title: "El artículo con el código "+newData.secondValue + " no se encontro.",
@@ -57,7 +62,9 @@ export class CreditRequestComponent {
               cupoId: this.client.cupo.id,
               electrodomesticoId: dataProduct.id
             }
+            //Se envia el DTO anteriormente mapeado a el servicio para que haga POST de el credito.
             this.creditService.createCredit(newCreditPostDto).subscribe((dataCredit: Credit) => {
+              //Se guarda el credito creado para mostrarlo
               this.credit = dataCredit;
               this.conditionCredit = true;
             });

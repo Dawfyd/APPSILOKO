@@ -14,7 +14,10 @@ import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-
+/**
+ * Entidad para la creacion de la tabla CUPO
+ * @author David Hoyos
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -13,6 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.sb.siloko.models.entities.Credito;
 import org.springframework.stereotype.Component;
 
+/**
+ * Componente que implementa el servicio de creditos
+ * @author David Hoyos
+ */
 @Component
 public class CreditoServiceImpl implements CreditoService {
 
@@ -128,7 +132,7 @@ public class CreditoServiceImpl implements CreditoService {
 	}
 
 	@Override
-	public String updateCredito(CreditoPutDto creditoPutDto) {
+	public Credito updateCredito(CreditoPutDto creditoPutDto) {
 		Long creditoId = creditoPutDto.getId();
 		if (creditoRepository.findById(creditoId).isPresent()) {
 			Credito creditoUpdate = creditoRepository.getOne(creditoId);
@@ -136,8 +140,8 @@ public class CreditoServiceImpl implements CreditoService {
 			creditoUpdate.setNumeroCuotas(creditoPutDto.getNumeroCuotas());
 			creditoUpdate.setFechaModificacion(new Date());
 			creditoRepository.save(creditoUpdate);
-			return "credito modificado";
+			return creditoUpdate;
 		}
-		return "Error al modificar el credito";
+		return null;
 	}
 }

@@ -1,3 +1,5 @@
+@import "/src/assets/theme/styles.scss";
+
 .card-credit-container {
     width: 40.3vw;
     border: 1px solid #dfdfdf;
@@ -16,64 +18,41 @@
     padding-left: 1.15vw;
     padding-right: 1vw;
 }
+
 .card-credit-label-title {
+    @include mixin-card-style;
     height: 4.4vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 700;
     font-size: 1.25vw;
     line-height: 1.35vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color: rgba(0, 0, 0, 0.87);
 }
+
 .card-credit-label-text {
+    @include mixin-card-style;
     height: 3vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 500;
     font-size: 1.11vw;
     line-height: 1.2vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color: rgba(0, 0, 0, 0.87);
+
 }
 .card-credit-label-text-bold{
+    @include mixin-card-style;
     height: 3vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 500;
     font-size: 1.25vw;
     line-height: 1.35vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color: rgba(0, 0, 0, 0.87);
 }
 .card-credit-label-description {
+    @include mixin-card-style;
     height: 4.9vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 500;
     font-size: 1.11vw;
     line-height: 1.2vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color:  rgba(0, 0, 0, 0.87);
-
 }
 .card-credit-text-description {
+    @include mixin-card-style;
     height: 4.9vh;
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 100;
     font-size: 0.97vw;
     line-height: 1.1vw;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.5px;
-    color: rgba(0, 0, 0, 0.87);
 }

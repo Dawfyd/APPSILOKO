@@ -34,11 +34,10 @@ export class ClientsComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.conditionCard = false;
+        //Ejecutar proceso masivo
         this.quotaService.runMassiveProcess().subscribe((data: MassiveProcessDto) => {
           this.massiveProcessDto = data;
-          console.log(data);
           this.conditionCard = true;
-
         });
         Swal.fire({
           icon: 'success',

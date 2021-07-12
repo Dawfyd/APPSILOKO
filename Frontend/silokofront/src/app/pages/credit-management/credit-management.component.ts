@@ -41,10 +41,13 @@ export class CreditManagementComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   getClient(newData: FormInputsDto) {
     this.conditionCard = false;
     this.conditionSelect = false;
+    //Obtener cliente con la cédula de ciudadanía
     this.clientService.getClient(newData.firstValue).subscribe((data: Client) => {
+      //Verificar que existe un cliente con la cédula de ciudadanía dada
       if (data[0] == null) {
         Swal.fire({
           title: "El cliente con el numero de cédula " + newData.firstValue + " no se encontro.",
@@ -55,7 +58,9 @@ export class CreditManagementComponent implements OnInit {
         })
       } else {
         this.client = data[0];
+        //Obtener credito con el codigo de aprobacion
         this.creditService.getCreditByCode(newData.secondValue).subscribe((dataCredit: Credit) => {
+          //Verificar que existe un credito con el codigo de aprobacion dado
           if (dataCredit == null) {
             Swal.fire({
               title: "El crédito con el código de aprobación " + newData.secondValue + " no se encontro.",
@@ -65,6 +70,7 @@ export class CreditManagementComponent implements OnInit {
               confirmButtonText: 'OK!'
             })
           } else {
+            //Verificar que el credito y el cliente tengan el mismo cupo asociado
             if (this.client.cupo.id === dataCredit.cupo.id) {
               this.credit = dataCredit;
               this.quota = this.client.cupo;
@@ -72,7 +78,9 @@ export class CreditManagementComponent implements OnInit {
               this.surnamesClientInput = this.client.apellido;
               this.documentClientInput = this.client.cedulaCiudadania;
               this.conditionCard = true;
+              //Verificar si el credito esta aprobado (Solo se permite actualizar creditos aprobados)
               if (this.credit.estado === "Aprobado") {
+                // enableUpdate en true, permite que el metodo que actualiza, se ejecute.
                 this.enableUpdate = true;
                 this.conditionSelect = true;
               } else {
@@ -96,6 +104,7 @@ export class CreditManagementComponent implements OnInit {
     });
   }
   updateDues(dues: number) {
+    //Alerta de confirmacion
     Swal.fire({
       title: '¿Estas Seguro?',
       text: "¿Quieres realizar la compra?",
@@ -116,6 +125,7 @@ export class CreditManagementComponent implements OnInit {
           showConfirmButton: false,
           timer: 1000
         })
+        //Verificar que el credito que sera actualizado, esta habilitado para ser actualizado (credito aprobado)
         if (this.enableUpdate == true) {
           this.conditionCard = false;
           this.creditUpdateDto = {
@@ -123,9 +133,10 @@ export class CreditManagementComponent implements OnInit {
             numeroCuotas: dues,
             estado: "Activo",
           }
+          //Se envia el DTO anteriormente mapeado a el servicio para que haga PUT de el credito.
           this.creditService.updateCredit(this.creditUpdateDto).subscribe((dataCreditUpdated: Credit) => {
+            //Se guarda el credito actualizado para mostrarlo
             this.credit = dataCreditUpdated;
-            console.log("Actualizado", dataCreditUpdated);
             this.conditionCard = true;
             this.conditionSelect = false;
             this.enableUpdate = false;

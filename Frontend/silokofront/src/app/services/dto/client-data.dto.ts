@@ -2,7 +2,7 @@ export interface ClientDataDto {
     cedulaCiudadania: string;
     nombre: string;
     apellido: string;
-    cupoMaximo: string;
-    cupoDisponible: string;
+    cupoMaximo: number;
+    cupoDisponible: number;
     estadoCupo: string;
   }

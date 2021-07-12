@@ -27,13 +27,13 @@
       <!-- Fruit Column -->
       <ng-container matColumnDef="cupoMaximo">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Cupo Total</th>
-        <td mat-cell *matCellDef="let row">${{row.cupoMaximo}} </td>
+        <td mat-cell *matCellDef="let row">{{row.cupoMaximo | currency:'USD':true:'1.0-3'}} </td>
       </ng-container>
 
       <!-- Fruit Column -->
       <ng-container matColumnDef="cupoDisponible">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Cupo Disponible</th>
-        <td mat-cell *matCellDef="let row">${{row.cupoDisponible}}</td>
+        <td mat-cell *matCellDef="let row">{{row.cupoDisponible | currency:'USD':true:'1.0-3'}}</td>
       </ng-container>
 
       <!-- Fruit Column -->

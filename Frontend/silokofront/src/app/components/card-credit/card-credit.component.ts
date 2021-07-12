@@ -20,6 +20,7 @@ export class CardCreditComponent implements OnInit {
   productDate: Date;
   balanceInput: string = "";
   activeCredit: boolean = false;
+  dateLabel: string = "Fecha de solicitud";
   constructor() { }
 
   ngOnInit() {
@@ -45,6 +46,7 @@ export class CardCreditComponent implements OnInit {
         break;
       }
       case "Activo": {
+        this.dateLabel = "Fecha de compra"
         this.titleInput = this.creditInput.codigoAprobacion;
         this.stateCredit = "#3F51B5";
         this.productDate = this.creditInput.fechaModificacion;

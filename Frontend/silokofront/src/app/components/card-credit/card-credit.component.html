@@ -7,7 +7,7 @@
         <span *ngIf="activeCredit" class="card-credit-label-text">Saldo pendiente</span>
         <span class="card-credit-label-description">Descripción</span>
         <span class="card-credit-label-text">Código de artículo</span>
-        <span class="card-credit-label-text">Fecha de solicitud</span>
+        <span class="card-credit-label-text">{{dateLabel}}</span>
     </div>
     <div class="card-credit-text-container">
         <span [ngStyle]="{'color': stateCredit}" class="card-credit-label-title">{{titleInput}}</span>
