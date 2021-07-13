@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.buildship.ui.wizard.project.import">
-		<item key="project_location" value="F:\Programacion"/>
+		<item key="project_location" value="F:\Programacion\Clon\APPSILOKO\Backend\siloko"/>
 		<item key="apply_working_sets" value="false"/>
+		<item key="gradle_distribution" value="GRADLE_DISTRIBUTION(WRAPPER)"/>
 		<list key="working_sets">
 		</list>
 	</section>
