@@ -6,7 +6,9 @@
   <span class="client-title-table">Lista de Clientes
   </span>
   <div class="client-table-container">
-    <app-table-clients></app-table-clients>
+    <app-table-clients *ngIf="conditionCard"
+    [clientDataArray]="clientDataArray"
+    ></app-table-clients>
   </div>
 
 </body>
