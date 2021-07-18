@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 })
 export class ClientsComponent implements OnInit {
 
-  conditionCard: boolean = true;
+  conditionCard: boolean = false;
   massiveProcessDto: MassiveProcessDto;
   clientDataArray: Array<ClientDataDto> = [];
   clientDataDto: ClientDataDto;
@@ -49,6 +49,7 @@ export class ClientsComponent implements OnInit {
 
   }
   runProcess() {
+
     Swal.fire({
       title: '¿Estas Seguro?',
       text: "¿Quieres asignar automáticamente el cupo total a todos los clientes?",
@@ -63,12 +64,17 @@ export class ClientsComponent implements OnInit {
       imageHeight: "104px",
 
     }).then((result) => {
+      this.conditionCard = false;
       if (result.isConfirmed) {
-        this.conditionCard = false;
+
+
         //Ejecutar proceso masivo
         this.quotaService.runMassiveProcess().subscribe((data: MassiveProcessDto) => {
           this.massiveProcessDto = data;
-          this.conditionCard = true;
+          this.clientDataArray = [];
+          this.ngOnInit();
+
+
         });
         Swal.fire({
           icon: 'success',
@@ -78,6 +84,8 @@ export class ClientsComponent implements OnInit {
         })
 
       }
+      this.conditionCard = true;
+
     })
 
   }
